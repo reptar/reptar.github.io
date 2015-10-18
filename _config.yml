@@ -1,0 +1,24 @@
+# Site settings
+site:
+  title: Yarn
+  author: Yarn
+  email: my@email.com
+  description: > # this means to ignore newlines until "baseurl:"
+    Homepage of yarn, static site generator.
+  baseurl: "" # the subpath of your site, e.g. /blog
+  url: "" # the base hostname & protocol for your site
+
+path:
+  source:      ./
+  destination: ./_site
+  plugins:     ./_plugins
+  themes:      ./_themes
+
+# What is the current theme.
+theme: 'thread'
+
+plugins:
+  html-minifier:
+    enabled: false
+  excerpt:
+    enabled: true

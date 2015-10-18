@@ -1,0 +1,8 @@
+{
+  "main": "yarn-homepage",
+  "dependencies": {
+    "yarn-excerpt": "^0.5.0",
+    "yarn-html-minifier": "^0.5.0",
+    "yarn-theme-thread": "^0.2.0"
+  }
+}
