@@ -34,13 +34,25 @@
 <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Home</h1>
+    <h1 class="post-title"></h1>
   </header>
 
   <section class="post-content">
-    <p>Yarn is a static site generator. It's designed to be flexible, able to meet any of your needs.</p>
-<h1><a href="/docs/installation/">Installation</a></h1>
-<h1><a href="/docs/configuration/">Configuration</a></h1>
+    <p>{
+&quot;main&quot;: &quot;yarn-homepage&quot;,
+&quot;scripts&quot;: {
+&quot;deploy&quot;: &quot;yarn build &amp;&amp; gdd --branch master --src _site --remote origin&quot;
+},
+&quot;dependencies&quot;: {
+&quot;normalize.css&quot;: &quot;^3.0.3&quot;,
+&quot;yarn-excerpt&quot;: &quot;^0.5.0&quot;,
+&quot;yarn-html-minifier&quot;: &quot;^0.5.0&quot;,
+&quot;yarn-theme-thread&quot;: &quot;^0.2.0&quot;
+},
+&quot;devDependencies&quot;: {
+&quot;@hswolff/git-directory-deploy&quot;: &quot;^0.5.5&quot;
+}
+}</p>
 
   </section>
 
