@@ -5,8 +5,9 @@ site:
   email: my@email.com
   description: > # this means to ignore newlines until "baseurl:"
     Homepage of yarn, static site generator.
+  keywords: "static site generator, static site, yarn, nodejs, javascript"
   baseurl: "" # the subpath of your site, e.g. /blog
-  url: "" # the base hostname & protocol for your site
+  url: "http://yarnjs.github.io/"
 
 path:
   source:      ./
@@ -15,7 +16,55 @@ path:
   themes:      ./_themes
 
 # What is the current theme.
-theme: 'thread'
+theme: 'default'
+
+# If we should remove the compile destination folder before writing.
+clean_destination: true
+
+# Collections of content.
+collections:
+  default:
+    path: ./
+    template: page
+  docs:
+    path: ./docs/
+    template: page
+    permalink: /docs/:title/
+  images:
+    path: ./images
+    static: true
+  post:
+    path: ./_posts
+    template: post
+    permalink: /blog/:title/
+    filter:
+      metadata:
+        draft: true
+      future_date:
+        key: date
+    sort:
+      key: date
+      order: descending
+    pagination:
+      template: index
+      size: 6
+      permalink_index: /blog/
+      permalink_page:  /blog/page/:page/
+  tag:
+    metadata: tags
+    sort:
+      key: date
+      order: descending
+    filter:
+      metadata:
+        draft: true
+      future_date:
+        key: date
+    pagination:
+      template: tag
+      size: 6
+      permalink_index: /blog/tag/:metadata/
+      permalink_page:  /blog/tag/:metadata/:page/
 
 plugins:
   html-minifier:
