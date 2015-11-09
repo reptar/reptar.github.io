@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <title>meta</title>
+  <title>Yarn</title>
   <meta name="description" content="Homepage of yarn, static site generator.
 ">
   <meta name="keywords" content="static site generator, static site, yarn, nodejs, javascript" />
@@ -16,13 +16,13 @@
 
   <link rel="stylesheet" type="text/css" href="/css/main-372bc51905.css" />
 </head>
-<body class="tag-template ">
+<body class="post-template">
 
   <header class="main-header">
     <div class="vertical">
       <div class="main-header-content">
         <h1 class="page-title">
-          <a href="/">meta</a>
+          <a href="/">Yarn</a>
         </h1>
       </div>
     </div>
@@ -39,38 +39,35 @@
   <main id="content" class="content" role="main">
     
 
-
 <article class="post">
+
   <header class="post-header">
-    <h2 class="post-title">
-      <a href="">My First Yarn</a>
-    </h2>
+    <h1 class="post-title">File</h1>
   </header>
-  <section class="post-excerpt">
-    <p>I used to collect string. Every day I&apos;d find a piece and add it to my collection.</p>
-    
+
+  <section class="post-content">
+    <h2>Frontmatter</h2>
+<p>Every file in your Yarn site can include optional additional metadata. This metadata is placed at the beginning of the file in a block that is parsed as YAML data. All variables placed here are then accessible when rendering the file. These variables also allow you to specifically change how that file should be rendered, be it with a different URL or template.</p>
+<p>For example if you have a file named <code>about.md</code> its contents might be:</p>
+<pre><code><span class="hljs-bullet">---
+</span>title: About
+url: /about-me/
+<span class="hljs-header">template: about
+---</span>
+
+About content.
+</code></pre>
+<p>When the file is rendered it will have the <code>title</code> field accessible from the template.</p>
+<p>What this frontmatter also changes is what the URL of the file will be and what template will be used.</p>
+<p>Instead of the defaults defined in <code>_config.yml</code> this file will have its url be <code>/about-me/</code> and will be rendered with the <code>about</code> template. This allows more exact control over your Yarn content.</p>
+
   </section>
-  <footer class="post-meta">
-    <time class="post-date" datetime="1 January 2015">1 January 2015</time>
-    &middot;
-    <span>
-      <a href="/blog/tag/meta/">meta</a>
-    </span>
-  </footer>
+
 </article>
 
 
 
-
     
-<nav class="pagination" role="navigation">
-  
-
-  <span class="page-number">1 of 1</span>
-
-  
-</nav>
-
   </main>
 
   <footer class="site-footer clearfix">
