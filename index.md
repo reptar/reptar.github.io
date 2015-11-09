@@ -4,10 +4,14 @@ title: Home
 
 Yarn is a static site generator. It's designed to be flexible, able to meet any of your needs.
 
-# [Installation](/docs/installation/)
+## [Installation](/docs/installation/)
 
-# [Configuration](/docs/configuration/)
+## [Configuration](/docs/configuration/)
 
-# [Usage](/docs/usage/)
+## [Usage](/docs/usage/)
 
-# [Collections](/docs/collections/)
+## [Collections](/docs/collections/)
+
+## [File](/docs/file/)
+
+## [Variables](/docs/variables/)
