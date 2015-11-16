@@ -46,7 +46,72 @@
   </header>
 
   <section class="post-content">
-    <p>Variables.</p>
+    <p>Every template that is rendered has access to variables when it is rendered. The following describes what variables are accessible from a template file.</p>
+<h2>site</h2>
+<p>This contains all values that are defined in your <code>_config.yml</code>'s  <code>site</code> object. Anything you put there will be accessible from every file that is rendered.</p>
+<p>An example site object:</p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">site</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"My Name"</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"my@email.com"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Personal blog.\n"</span></span>,
+    "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/"</span>
+  </span>}
+</span>}
+</code></pre>
+<h2>theme</h2>
+<p>This primarily includes two variables, <code>css</code> and <code>js</code> whose values are the URL to the asset that is going to be rendered. This is primarily useful when linking to the processed theme asset files.</p>
+<p>An example theme object:</p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">theme</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">css</span>": <span class="hljs-value"><span class="hljs-string">"/css/main-684582f800.css"</span></span>,
+    "<span class="hljs-attribute">js</span>": <span class="hljs-value"><span class="hljs-string">"/js/main-fc9402a8a5.js"</span>
+  </span>}
+</span>}
+</code></pre>
+<h2>collections</h2>
+<p>This is an object whose keys reflect every Collection that you have defined in your <code>_config.yml</code>, and every value is also an object.</p>
+<p>The keys on a collection are <code>files</code> and <code>pages</code>. Both are arrays which contain a File data object and a Pagination data object respectively.</p>
+<p>For example the default <code>post</code> collection looks like this:</p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">collections</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">post</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">files</span>": <span class="hljs-value">[
+        // File data objects
+      ]</span>,
+      "<span class="hljs-attribute">pages</span>": <span class="hljs-value">[
+        // Pagination data objects.
+      ]
+    </span>}
+  </span>}
+</span>}
+</code></pre>
+<h3>File data object</h3>
+<p>These are found within a non-static collection. They include all Frontmatter defined data in the object as well as two additional fields, <code>content</code> which contains the non-Frontmatter data, and <code>url</code> which can either be defined in the file or is derived from from the File's Collection's permalink value.</p>
+<p>An example File data object:</p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Example post"</span></span>,
+  "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2015-08-15T02:17:07.184Z"</span></span>,
+  "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"&lt;p&gt;Contents of file.&lt;/p&gt;\n"</span></span>,
+  "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/example-post/"</span>
+</span>}
+</code></pre>
+<h3>Pagination data object</h3>
+<p>If a Collection has defined pagination variables then it will contain a pages array full of Pagination data objects. This allows for easy pagination of Collection Files. Each Pagination data object contains information about the page as well as containing the files that belong in that page, so you can render a list of those files.</p>
+<p>An example Pagination data object:</p>
+<pre><code class="language-json">{
+  "page": 1,
+  "files": [{
+    // File data objects
+  }],
+  "total_pages": 67,
+  "per_page": 6,
+  "total": 399,
+  "url": "/",
+  "next": 2,
+  "next_link": "/page/2/"
+}
+</code></pre>
 
   </section>
 
