@@ -2,6 +2,8 @@
 title: File
 ---
 
+An individual File that exists in your Yarn site.
+
 
 ## Frontmatter
 
