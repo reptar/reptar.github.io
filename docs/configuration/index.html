@@ -16,7 +16,7 @@
 
   <link rel="shortcut icon" href="/favicon.ico">
 
-  <link rel="stylesheet" type="text/css" href="/css/main-ca03c072ee.css" />
+  <link rel="stylesheet" type="text/css" href="/css/main-ddfa607e8e.css" />
 </head>
 <body class="docs-template">
 
@@ -60,21 +60,26 @@
     <p>Most of Yarn's flexibility comes from its ability to be configured and changed to meet your needs.</p>
 <p>All of the configuration for your Yarn site resides in your <code>_config.yml</code> file. This file is what Yarn uses to decide how to build your site.</p>
 <p>Understanding the <code>_config.yml</code> file, and how to update it, is how you will make Yarn work best for you.</p>
-<p><a href="https://github.com/yarnjs/yarn/blob/master/lib/config/defaults.yml">All default settings are found in the repository.</a></p>
-<pre><code class="language-yaml"><span class="hljs-comment"># This is where you can put site-wide settings. Any values placed here are globally accessible from any template context via the `site` key.</span>
+<h3><a href="https://github.com/yarnjs/yarn/blob/master/lib/config/defaults.yml">Find all default settings in the repository.</a></h3>
+<pre><code class="language-yaml"><span class="hljs-comment"># This is where you can put site-wide settings.</span>
+<span class="hljs-comment"># Any values placed here are globally accessible</span>
+<span class="hljs-comment"># from any template context via the `site` key.</span>
 site:
   title: <span class="hljs-type">My</span> <span class="hljs-type">Yarn</span> <span class="hljs-type">Title</span>
-  description: &gt; <span class="hljs-comment"># this means to ignore newlines until "baseurl:"</span>
-    <span class="hljs-type">Your</span> website's description goes here.
+  description: <span class="hljs-type">Your</span> website's description goes here.
 
-<span class="hljs-comment"># If you have a unique layout for your site and want to change where Yarn looks for certain files you can change them here. All files are relative to where the `_config.yml` is found.</span>
+<span class="hljs-comment"># If you have a unique layout for your site and want to</span>
+<span class="hljs-comment"># change where Yarn looks for certain files you can change</span>
+<span class="hljs-comment"># them here. All files are relative to where the `_config.yml`</span>
+<span class="hljs-comment"># is found.</span>
 path:
   source:      ./
   destination: ./_site
   plugins:     ./_plugins
   themes:      ./_themes
 
-<span class="hljs-comment"># This is where you configure your collections of content. For more details refer to the [Collections documentation](collections.md).</span>
+<span class="hljs-comment"># This is where you configure your collections of content.</span>
+<span class="hljs-comment"># For more details refer to the [Collections documentation](collections.md).</span>
 collections:
   default:
     path: ./
@@ -83,10 +88,12 @@ collections:
     path: ./images
     <span class="hljs-keyword">static</span>: <span class="hljs-literal">true</span>
 
-<span class="hljs-comment"># What theme your Yarn site should use when building your site.</span>
+<span class="hljs-comment"># What theme your Yarn site should use when building</span>
+<span class="hljs-comment"># your site.</span>
 theme: 'default'
 
-<span class="hljs-comment"># If we should remove the compile destination folder before writing.</span>
+<span class="hljs-comment"># If we should remove the compile destination folder</span>
+<span class="hljs-comment"># before writing.</span>
 clean_destination: <span class="hljs-literal">false</span>
 
 <span class="hljs-comment"># What file extensions we should recognize as a markdown file.</span>
@@ -132,16 +139,16 @@ plugins:
       <a href="/docs/installation/">Installation</a>
     </li>
 
-    <li class="docsNav-item docsNav-item--active">
-      <a href="/docs/configuration/">Configuration</a>
+    <li class="docsNav-item ">
+      <a href="/docs/overview/">Overview</a>
     </li>
 
     <li class="docsNav-item ">
       <a href="/docs/usage/">Usage</a>
     </li>
 
-    <li class="docsNav-item ">
-      <a href="/docs/overview/">Overview</a>
+    <li class="docsNav-item docsNav-item--active">
+      <a href="/docs/configuration/">Configuration</a>
     </li>
 
     <li class="docsNav-item ">

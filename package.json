@@ -16,7 +16,7 @@
 
   <link rel="shortcut icon" href="/favicon.ico">
 
-  <link rel="stylesheet" type="text/css" href="/css/main-ca03c072ee.css" />
+  <link rel="stylesheet" type="text/css" href="/css/main-ddfa607e8e.css" />
 </head>
 <body class="post-template">
 
@@ -65,6 +65,7 @@
 &quot;deploy&quot;: &quot;yarn build &amp;&amp; gdd --branch master --src _site --remote origin&quot;
 },
 &quot;dependencies&quot;: {
+&quot;bootstrap&quot;: &quot;^3.3.5&quot;,
 &quot;normalize.css&quot;: &quot;^3.0.3&quot;,
 &quot;yarn-excerpt&quot;: &quot;^0.5.0&quot;,
 &quot;yarn-html-minifier&quot;: &quot;^0.5.0&quot;,
