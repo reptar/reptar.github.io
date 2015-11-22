@@ -48,11 +48,24 @@
 <article class="docsPage">
 
   <header class="post-header">
-    <h1 class="post-title">Documentation</h1>
+    <h1 class="post-title">File</h1>
   </header>
 
   <section class="post-content">
-    <p>Yarn documentation. Yay!</p>
+    <h2>Frontmatter</h2>
+<p>Every file in your Yarn site can include optional additional metadata. This metadata is placed at the beginning of the file in a block that is parsed as YAML data. All variables placed here are then accessible when rendering the file. These variables also allow you to specifically change how that file should be rendered, be it with a different URL or template.</p>
+<p>For example if you have a file named <code>about.md</code> its contents might be:</p>
+<pre><code><span class="hljs-bullet">---
+</span>title: About
+url: /about-me/
+<span class="hljs-header">template: about
+---</span>
+
+About content.
+</code></pre>
+<p>When the file is rendered it will have the <code>title</code> field accessible from the template.</p>
+<p>What this frontmatter also changes is what the URL of the file will be and what template will be used.</p>
+<p>Instead of the defaults defined in <code>_config.yml</code> this file will have its url be <code>/about-me/</code> and will be rendered with the <code>about</code> template. This allows more exact control over your Yarn content.</p>
 
   </section>
 
@@ -83,7 +96,7 @@
       <a href="/docs/collections/">Collections</a>
     </li>
 
-    <li class="docsNav-item ">
+    <li class="docsNav-item docsNav-item--active">
       <a href="/docs/file/">File</a>
     </li>
 
