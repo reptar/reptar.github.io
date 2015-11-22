@@ -43,3 +43,4 @@ An emphasis on legible and extensible code, along with fast site builds.
     - Handle when a new file is added.
     - Handle when a file is removed.
     - Handle when theme file changes/added/removed.
+
