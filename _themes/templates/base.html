@@ -28,7 +28,7 @@
       <div class="mainNav-item {{'mainNav-item--active' if page.url == '/index.html' else ''}}">
         <a href="/">Home</a>
       </div>
-      <div class="mainNav-item {{'mainNav-item--active' if page.url.indexOf('/docs/') > -1 else ''}}">
+      <div class="mainNav-item {{'mainNav-item--active' if page.url|truncate(6, true, '') == '/docs/' else ''}}">
         <a href="/docs/">Docs</a>
       </div>
       <div class="mainNav-item">
