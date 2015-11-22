@@ -25,19 +25,19 @@ Ready to install Yarn? Getting started is simple!
 npm install -g yarn-cli
 ```
 
-1. Create the directory where your Yarn site will reside.
+2. Create the directory where your Yarn site will reside.
 ```shell
 mkdir mysite && cd mysite
 ```
 
-1. Initialize a new Yarn site. This copies over basic scaffold files that are needed to build.
+3. Initialize a new Yarn site. This copies over basic scaffold files that are needed to build.
 ```shell
 yarn init
 ```
 
-1. Build your Yarn site for the first time and then start a local http-server to view the built files.
+4. Build your Yarn site for the first time and then start a local http-server to view the built files.
 ```shell
 yarn build && yarn serve
 ```
 
-1. Navigate to [http://localhost:8080/](http://localhost:8080/) to see your new Yarn site!
+5. Navigate to [http://localhost:8080/](http://localhost:8080/) to see your new Yarn site!

@@ -32,33 +32,74 @@ Here is the example configuration, with explanations for every configuration val
 ```yaml
 collections:
   post:
-    # For every file found within `./_posts` they should be tentatively included in this collection, depending on additional configurations.
+
+    # For every file found within `./_posts` they should be
+    # tentatively included in this collection, depending on
+    # additional configurations.
     path: ./_posts
-    # By default every post will use the `post.html` template. This can be over-ridden on a per-file basis if desired in the file's frontmatter.
+
+    # By default every post will use the `post.html` template.
+    # This can be over-ridden on a per-file basis if desired
+    # in the file's frontmatter.
     template: post
-    # This is the URL that every file should have when being built. This takes directly from the frontmatter of the file, making every value in the frontmatter available  for use in the permalink configuration template string.
+
+    # This is the URL that every file should have when being
+    # built. This takes directly from the frontmatter of the
+    # file, making every value in the frontmatter available
+    # for use in the permalink configuration template string.
     permalink: /:title/
-    # Configure an optional filter to apply when deciding if a file should belong in this collection. Currently there are two types of filters that can be applied, both are shown as an example here.
+
+    # Configure an optional filter to apply when deciding if a
+    # file should belong in this collection. Currently there are
+    # two types of filters that can be applied, both are shown
+    # as an example here.
     filter:
-      # This corresponds to the frontmatter metadata found in a file. If the value described here is found to be true then the file is filtered out of the `post` collection. In this case we're saying that any file which says it is a draft will not be included in this collection.
+
+      # This corresponds to the frontmatter metadata found
+      # in a file. If the value described here is found to be
+      # true then the file is filtered out of the `post`
+      # collection. In this case we're saying that any file
+      # which says it is a draft will not be included in
+      # this collection.
       metadata:
         draft: true
-      # This corresponds to the frontmatter of the file as well. Depending on what key is defined it checks to see if it is a date object, and if it is then it sees if it is a date in the future. If it is a date in the future then it is not included in the collection.
+
+      # This corresponds to the frontmatter of the file as well.
+      # Depending on what key is defined it checks to see if it
+      # is a date object, and if it is then it sees if it is a
+      # date in the future. If it is a date in the future then
+      # it is not included in the collection.
       future_date:
         key: date
-    # Once files have been included in the collection this defines how they should be sorted. The key value corresponds to the frontmatter metadata, so you can choose whatever property you want to dictate how the collection is ordered.
+
+    # Once files have been included in the collection this
+    # defines how they should be sorted. The key value
+    # corresponds to the frontmatter metadata, so you can choose
+    # whatever property you want to dictate how the collection
+    # is ordered.
     sort:
       key: date
       order: descending
-    # There is also the concept of pagination built into Yarn. If you want to break up the files within this FileSystemCollection you can.
+
+    # There is also the concept of pagination built into Yarn.
+    # If you want to break up the files within this
+    # FileSystemCollection you can.
     pagination:
-      # Decide what template to use when rendering a pagination page.
+
+      # Decide what template to use when rendering a
+      # pagination page.
       template: index
-      # Decide how many files should be included in each pagination page.
+
+      # Decide how many files should be included in each
+      # pagination page.
       size: 6
-      # Decide what the URL should be for the initial pagination page.
+
+      # Decide what the URL should be for the initial
+      # pagination page.
       permalink_index: /
-      # Decide what the URL should be for every additional pagination page.
+
+      # Decide what the URL should be for every additional
+      # pagination page.
       permalink_page:  /page/:page/
 ```
 

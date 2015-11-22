@@ -4,6 +4,7 @@
     "deploy": "yarn build && gdd --branch master --src _site --remote origin"
   },
   "dependencies": {
+    "bootstrap": "^3.3.5",
     "normalize.css": "^3.0.3",
     "yarn-excerpt": "^0.5.0",
     "yarn-html-minifier": "^0.5.0",
