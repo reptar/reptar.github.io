@@ -17,20 +17,26 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
-  <header class="main-header">
-    <div class="vertical">
-      <div class="main-header-content">
-        <h1 class="page-title">
-          <a href="/">{% block header_title %}{{site.title}}{% endblock %}</a>
-        </h1>
-      </div>
+  <header class="mainHeader clearfix">
+    <div class="mainLogo">
+      <h1 class="mainLogo-title">
+        <a href="/">{% block header_title %}{{site.title}}{% endblock %}</a>
+      </h1>
     </div>
 
-    <nav class-"headerNav">
-      <div><a href="/docs/">Docs</a></div>
-      <div><a href="https://github.com/yarnjs/yarn">GitHub</a></div>
-      <div>
-        <iframe src="https://ghbtns.com/github-btn.html?user=yarnjs&repo=yarn&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+    <nav class="mainNav">
+      <div class="mainNav-item {{'mainNav-item--active' if page.url == '/index.html' else ''}}">
+        <a href="/">Home</a>
+      </div>
+      <div class="mainNav-item {{'mainNav-item--active' if page.url.indexOf('/docs/') > -1 else ''}}">
+        <a href="/docs/">Docs</a>
+      </div>
+      <div class="mainNav-item">
+        <a href="https://github.com/yarnjs/yarn">GitHub</a>
+      </div>
+      <div class="mainNav-item">
+        <iframe class="mainNav-item--iframe" frameborder="0" scrolling="0" width="80px" height="20px"
+          src="https://ghbtns.com/github-btn.html?user=yarnjs&repo=yarn&type=star&count=true"></iframe>
       </div>
     </nav>
   </header>

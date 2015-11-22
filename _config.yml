@@ -28,7 +28,7 @@ collections:
     template: page
   docs:
     path: ./docs/
-    template: page
+    template: docs_page
     permalink: /docs/:title/
   images:
     path: ./images

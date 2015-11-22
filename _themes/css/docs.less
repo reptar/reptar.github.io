@@ -1,0 +1,33 @@
+// Layout.
+.docsPage,
+.docsNav {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.docsPage {
+  width: 75%;
+}
+
+.docsNav {
+  width: 23%;
+  padding-left: 5%;
+}
+
+// Styles
+.docsNav-itemContainer {
+  list-style: none;
+  padding: 0;
+}
+
+.docsNav-item {
+  margin: 15px 0;
+
+  > a {
+    text-decoration: none;
+  }
+
+  &.docsNav-item--active {
+    font-weight: bold;
+  }
+}

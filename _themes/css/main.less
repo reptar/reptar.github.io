@@ -1,10 +1,25 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 @import (inline) "npm://normalize.css/normalize.css";
 @import (inline) "highlight.css";
 
 @import "variables.less";
 @import "elements.less";
 @import "layout.less";
+@import "docs.less";
 
 pre {
   word-wrap: break-word;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
 }
