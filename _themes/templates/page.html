@@ -6,14 +6,14 @@
 
 <article class="post">
 
-  {% if page.include_post_header != false %}
+  {% if file.include_post_header != false %}
   <header class="postHeader">
-    <h1 class="post-title">{{page.title}}</h1>
+    <h1 class="post-title">{{file.title}}</h1>
   </header>
   {% endif %}
 
   <section class="post-content">
-    {{page.content | safe}}
+    {{file.content | safe}}
   </section>
 
 </article>

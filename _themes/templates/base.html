@@ -28,10 +28,10 @@
       </div>
 
       <nav class="mainNav">
-        <div class="mainNav-item {{'mainNav-item--active' if page.url == '/index.html' else ''}}">
+        <div class="mainNav-item {{'mainNav-item--active' if file.url == '/index.html' else ''}}">
           <a href="/">Home</a>
         </div>
-        <div class="mainNav-item {{'mainNav-item--active' if page.url|truncate(6, true, '') == '/docs/' else ''}}">
+        <div class="mainNav-item {{'mainNav-item--active' if file.url|truncate(6, true, '') == '/docs/' else ''}}">
           <a href="/docs/">Docs</a>
         </div>
         <div class="mainNav-item">
