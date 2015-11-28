@@ -36,6 +36,19 @@ An example theme object:
 }
 ```
 
+## yarn
+
+This contains meta information about your Yarn installation.
+
+```json
+{
+  "yarn": {
+    "version": "0.6.0",
+    "time": "2015-11-28T15:30:33-05:00"
+  }
+}
+```
+
 ## collections
 
 This is an object whose keys reflect every Collection that you have defined in your `_config.yml`, and every value is also an object.
@@ -67,10 +80,12 @@ An example File data object:
 
 ```json
 {
-  "title": "Example post",
-  "date": "2015-08-15T02:17:07.184Z",
-  "content": "<p>Contents of file.</p>\n",
-  "url": "/example-post/"
+  "file": {
+    "title": "Example post",
+    "date": "2015-08-15T02:17:07.184Z",
+    "content": "<p>Contents of file.</p>\n",
+    "url": "/example-post/"
+  }
 }
 ```
 
@@ -82,15 +97,17 @@ An example Pagination data object:
 
 ```json
 {
-  "page": 1,
-  "files": [{
-    // File data objects
-  }],
-  "total_pages": 67,
-  "per_page": 6,
-  "total": 399,
-  "url": "/",
-  "next": 2,
-  "next_link": "/page/2/"
+  "pagination": {
+    "page": 1,
+    "files": [{
+      // File data objects
+    }],
+    "total_pages": 67,
+    "per_page": 6,
+    "total": 399,
+    "url": "/",
+    "next": 2,
+    "next_link": "/page/2/"
+  }
 }
 ```

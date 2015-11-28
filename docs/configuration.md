@@ -28,8 +28,15 @@ path:
   plugins:     ./_plugins
   themes:      ./_themes
 
+# Individual File configuration.
+file:
+
+  # What key from a File's frontmatter Yarn should use
+  # as the property to grab the URL of the file from.
+  url_key: url
+
 # This is where you configure your collections of content.
-# For more details refer to the [Collections documentation](collections.md).
+# For more details refer to the [Collections documentation](/docs/collections/).
 collections:
   default:
     path: ./
@@ -50,6 +57,10 @@ clean_destination: false
 markdown_extension:
   - markdown
   - md
+
+# Options passed to [node-slug](https://github.com/dodo/node-slug)
+slug:
+  lower: true
 
 # What markdown conversion tool we should use.
 markdown:    remarkable
