@@ -53,11 +53,27 @@
 <article class="docsPage">
 
   <header class="postHeader">
-    <h1 class="post-title">Plugins</h1>
+    <h1 class="post-title">Templates</h1>
   </header>
 
   <section class="post-content">
-    <p>Coming soon.</p>
+    <p>Every File that is rendered within Yarn is passed through the <a href="http://mozilla.github.io/nunjucks/">nunjucks</a> template engine. Nunjucks is a full-featured template engine that lets you create expressive and powerful sites.</p>
+<p>You should read the <a href="http://mozilla.github.io/nunjucks/templating.html">nunjucks documentation</a> to learn how to write a template. Or you can take a peak at the <a href="https://github.com/yarnjs/yarn-theme-thread">yarn theme 'thread'</a> to see an example of a template used within a Yarn theme.</p>
+<h2>Built-in filters</h2>
+<p>In addition to the filters available by nunjucks Yarn ships with a few additional built-in filters to make writing templates easier.</p>
+<p>Find the <a href="http://github.com/yarnjs/yarn/blob/master/lib/render/template.js">source for built-in filters</a> in the GitHub repo.</p>
+<h3>date(date, template)</h3>
+<p>This allows you to easily make use of the <a href="http://momentjs.com/">momentjs</a> library within a template. It takes a date to format and then a moment template string that it passes through to <code>momentjs</code>:</p>
+<pre><code class="language-html">The year this site was published is: {{yarn.time | date('YYYY')}}.
+</code></pre>
+<h3>slug(str)</h3>
+<p>Passes the string given to <code>Url.slug</code> which in turn passes the string to <code>node-slug</code>.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"{{post.url | slug}}"</span>&gt;</span>Find the post here.<span class="hljs-tag">&lt;/&gt;</span>
+</code></pre>
+<h3>absolute_url(relativePath, basePath)</h3>
+<p>This is useful when constructing URLs in your template and you want to make sure a full URL is outputted.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"{{file.url | absolute_url(site.url)}}"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+</code></pre>
 
   </section>
 
@@ -92,7 +108,7 @@
       <a href="/docs/file/">File</a>
     </li>
 
-    <li class="docsNav-item ">
+    <li class="docsNav-item docsNav-item--active">
       <a href="/docs/templates/">Templates</a>
     </li>
 
@@ -100,7 +116,7 @@
       <a href="/docs/variables/">Variables</a>
     </li>
 
-    <li class="docsNav-item docsNav-item--active">
+    <li class="docsNav-item ">
       <a href="/docs/plugins/">Plugins</a>
     </li>
   </ol>

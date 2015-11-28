@@ -78,8 +78,15 @@ path:
   plugins:     ./_plugins
   themes:      ./_themes
 
+<span class="hljs-comment"># Individual File configuration.</span>
+file:
+
+  <span class="hljs-comment"># What key from a File's frontmatter Yarn should use</span>
+  <span class="hljs-comment"># as the property to grab the URL of the file from.</span>
+  url_key: url
+
 <span class="hljs-comment"># This is where you configure your collections of content.</span>
-<span class="hljs-comment"># For more details refer to the [Collections documentation](collections.md).</span>
+<span class="hljs-comment"># For more details refer to the [Collections documentation](/docs/collections/).</span>
 collections:
   default:
     path: ./
@@ -100,6 +107,10 @@ clean_destination: <span class="hljs-literal">false</span>
 markdown_extension:
   - markdown
   - md
+
+<span class="hljs-comment"># Options passed to [node-slug](https://github.com/dodo/node-slug)</span>
+slug:
+  lower: <span class="hljs-literal">true</span>
 
 <span class="hljs-comment"># What markdown conversion tool we should use.</span>
 markdown:    remarkable
@@ -157,6 +168,10 @@ plugins:
 
     <li class="docsNav-item ">
       <a href="/docs/file/">File</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/templates/">Templates</a>
     </li>
 
     <li class="docsNav-item ">
