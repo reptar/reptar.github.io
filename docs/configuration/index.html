@@ -1,212 +1,82 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <title>yarn</title>
-  <meta name="description" content="Homepage of yarn, static site generator.
-">
-  <meta name="keywords" content="static site generator, static site, yarn, nodejs, javascript" />
-
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="shortcut icon" href="/favicon.ico">
-
-  <link rel="stylesheet" type="text/css" href="/css/main-ddfa607e8e.css" />
-</head>
-<body class="docs-template">
-
-  <div class="headerWrapper clearfix">
-    <header class="mainHeader clearfix">
-      <div class="mainLogo">
-        <h1 class="mainLogo-title">
-          <a href="/">yarn</a>
-        </h1>
-      </div>
-
-      <nav class="mainNav">
-        <div class="mainNav-item ">
-          <a href="/">Home</a>
-        </div>
-        <div class="mainNav-item mainNav-item--active">
-          <a href="/docs/">Docs</a>
-        </div>
-        <div class="mainNav-item">
-          <a href="https://github.com/yarnjs/yarn">GitHub</a>
-        </div>
-        <div class="mainNav-item">
-          <iframe class="mainNav-item--iframe" frameborder="0" scrolling="0" width="80px" height="20px"
-            src="https://ghbtns.com/github-btn.html?user=yarnjs&repo=yarn&type=star&count=true"></iframe>
-        </div>
-      </nav>
-    </header>
-  </div>
-
-  <div class="contentWrapper">
-    <main id="content" class="content" role="main">
-      
-
-<article class="docsPage">
-
-  <header class="postHeader">
-    <h1 class="post-title">Configuration</h1>
-  </header>
-
-  <section class="post-content">
-    <p>Most of Yarn's flexibility comes from its ability to be configured and changed to meet your needs.</p>
-<p>All of the configuration for your Yarn site resides in your <code>_config.yml</code> file. This file is what Yarn uses to decide how to build your site.</p>
-<p>Understanding the <code>_config.yml</code> file, and how to update it, is how you will make Yarn work best for you.</p>
-<h3><a href="https://github.com/yarnjs/yarn/blob/master/lib/config/defaults.yml">Find all default settings in the repository.</a></h3>
-<pre><code class="language-yaml"><span class="hljs-comment"># This is where you can put site-wide settings.</span>
-<span class="hljs-comment"># Any values placed here are globally accessible</span>
-<span class="hljs-comment"># from any template context via the `site` key.</span>
+<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel=stylesheet type=text/css><meta charset="utf-8"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>yarn</title><meta name=description content="Homepage of yarn, static site generator.
+"><meta name=keywords content="static site generator, static site, yarn, nodejs, javascript"><meta name=HandheldFriendly content="True"><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=/favicon.ico><link rel=stylesheet type=text/css href="/css/main-ddfa607e8e.css"></head><body class=docs-template><div class="headerWrapper clearfix"><header class="mainHeader clearfix"><div class=mainLogo><h1 class=mainLogo-title><a href="/">yarn</a></h1></div><nav class=mainNav><div class=mainNav-item><a href="/">Home</a></div><div class="mainNav-item mainNav-item--active"><a href="/docs/">Docs</a></div><div class=mainNav-item><a href=https://github.com/yarnjs/yarn>GitHub</a></div><div class=mainNav-item><iframe class=mainNav-item--iframe frameborder=0 scrolling=0 width=80px height=20px src="https://ghbtns.com/github-btn.html?user=yarnjs&repo=yarn&type=star&count=true"></iframe></div></nav></header></div><div class=contentWrapper><main id=content class=content role=main><article class=docsPage><header class=postHeader><h1 class=post-title>Configuration</h1></header><section class=post-content><p>Most of Yarn's flexibility comes from its ability to be configured and changed to meet your needs.</p><p>All of the configuration for your Yarn site resides in your <code>_config.yml</code> file. This file is what Yarn uses to decide how to build your site.</p><p>Understanding the <code>_config.yml</code> file, and how to update it, is how you will make Yarn work best for you.</p><h3><a href=https://github.com/yarnjs/yarn/blob/master/lib/config/defaults.yml>Find all default settings in the repository.</a></h3><pre><code class=language-yaml><span class=hljs-comment># This is where you can put site-wide settings.</span>
+<span class=hljs-comment># Any values placed here are globally accessible</span>
+<span class=hljs-comment># from any template context via the `site` key.</span>
 site:
-  title: <span class="hljs-type">My</span> <span class="hljs-type">Yarn</span> <span class="hljs-type">Title</span>
-  description: <span class="hljs-type">Your</span> website's description goes here.
+  title: <span class=hljs-type>My</span> <span class=hljs-type>Yarn</span> <span class=hljs-type>Title</span>
+  description: <span class=hljs-type>Your</span> website's description goes here.
 
-<span class="hljs-comment"># If you have a unique layout for your site and want to</span>
-<span class="hljs-comment"># change where Yarn looks for certain files you can change</span>
-<span class="hljs-comment"># them here. All files are relative to where the `_config.yml`</span>
-<span class="hljs-comment"># is found.</span>
+<span class=hljs-comment># If you have a unique layout for your site and want to</span>
+<span class=hljs-comment># change where Yarn looks for certain files you can change</span>
+<span class=hljs-comment># them here. All files are relative to where the `_config.yml`</span>
+<span class=hljs-comment># is found.</span>
 path:
   source:      ./
   destination: ./_site
   plugins:     ./_plugins
   themes:      ./_themes
 
-<span class="hljs-comment"># Individual File configuration.</span>
+<span class=hljs-comment># Individual File configuration.</span>
 file:
 
-  <span class="hljs-comment"># What key from a File's frontmatter Yarn should use</span>
-  <span class="hljs-comment"># as the property to grab the URL of the file from.</span>
+  <span class=hljs-comment># What key from a File's frontmatter Yarn should use</span>
+  <span class=hljs-comment># as the property to grab the URL of the file from.</span>
   url_key: url
 
-<span class="hljs-comment"># This is where you configure your collections of content.</span>
-<span class="hljs-comment"># For more details refer to the [Collections documentation](/docs/collections/).</span>
+<span class=hljs-comment># This is where you configure your collections of content.</span>
+<span class=hljs-comment># For more details refer to the [Collections documentation](/docs/collections/).</span>
 collections:
   default:
     path: ./
-    <span class="hljs-keyword">template</span>: page
+    <span class=hljs-keyword>template</span>: page
   images:
     path: ./images
-    <span class="hljs-keyword">static</span>: <span class="hljs-literal">true</span>
+    <span class=hljs-keyword>static</span>: <span class=hljs-literal>true</span>
 
-<span class="hljs-comment"># What theme your Yarn site should use when building</span>
-<span class="hljs-comment"># your site.</span>
+<span class=hljs-comment># What theme your Yarn site should use when building</span>
+<span class=hljs-comment># your site.</span>
 theme: 'default'
 
-<span class="hljs-comment"># If we should remove the compile destination folder</span>
-<span class="hljs-comment"># before writing.</span>
-clean_destination: <span class="hljs-literal">false</span>
+<span class=hljs-comment># If we should remove the compile destination folder</span>
+<span class=hljs-comment># before writing.</span>
+clean_destination: <span class=hljs-literal>false</span>
 
-<span class="hljs-comment"># What file extensions we should recognize as a markdown file.</span>
+<span class=hljs-comment># What file extensions we should recognize as a markdown file.</span>
 markdown_extension:
   - markdown
   - md
 
-<span class="hljs-comment"># Options passed to [node-slug](https://github.com/dodo/node-slug)</span>
+<span class=hljs-comment># Options passed to [node-slug](https://github.com/dodo/node-slug)</span>
 slug:
-  lower: <span class="hljs-literal">true</span>
+  lower: <span class=hljs-literal>true</span>
 
-<span class="hljs-comment"># What markdown conversion tool we should use.</span>
+<span class=hljs-comment># What markdown conversion tool we should use.</span>
 markdown:    remarkable
 highlighter: highlight.js
 
-<span class="hljs-comment"># This lets you customize the markdown processor defined above.</span>
+<span class=hljs-comment># This lets you customize the markdown processor defined above.</span>
 remarkable:
   preset:       'commonmark'
-  highlight:    <span class="hljs-literal">true</span>
+  highlight:    <span class=hljs-literal>true</span>
 
-<span class="hljs-comment"># When running `yarn serve` what settings should be used.</span>
-port:    <span class="hljs-number">8080</span>
-host:    <span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>
+<span class=hljs-comment># When running `yarn serve` what settings should be used.</span>
+port:    <span class=hljs-number>8080</span>
+host:    <span class=hljs-number>127</span>.<span class=hljs-number>0</span>.<span class=hljs-number>0</span>.<span class=hljs-number>1</span>
 
-<span class="hljs-comment"># What plugins you want enabled and what configuration settings they should have.</span>
+<span class=hljs-comment># What plugins you want enabled and what configuration settings they should have.</span>
 plugins:
   html-minifier:
-    enabled: <span class="hljs-literal">false</span>
+    enabled: <span class=hljs-literal>false</span>
     options:
-      collapseWhitespace: <span class="hljs-literal">true</span>
-      collapseBooleanAttributes: <span class="hljs-literal">true</span>
-      removeAttributeQuotes: <span class="hljs-literal">true</span>
+      collapseWhitespace: <span class=hljs-literal>true</span>
+      collapseBooleanAttributes: <span class=hljs-literal>true</span>
+      removeAttributeQuotes: <span class=hljs-literal>true</span>
   excerpt:
-    enabled: <span class="hljs-literal">true</span>
-</code></pre>
-
-  </section>
-
-</article>
-
-
-
-<nav class="docsNav">
-  <h4>Getting Started</h4>
-  <ol class="docsNav-itemContainer">
-    <li class="docsNav-item ">
-      <a href="/docs/installation/">Installation</a>
-    </li>
-
-    <li class="docsNav-item ">
-      <a href="/docs/overview/">Overview</a>
-    </li>
-
-    <li class="docsNav-item ">
-      <a href="/docs/usage/">Usage</a>
-    </li>
-
-    <li class="docsNav-item docsNav-item--active">
-      <a href="/docs/configuration/">Configuration</a>
-    </li>
-
-    <li class="docsNav-item ">
-      <a href="/docs/collections/">Collections</a>
-    </li>
-
-    <li class="docsNav-item ">
-      <a href="/docs/file/">File</a>
-    </li>
-
-    <li class="docsNav-item ">
-      <a href="/docs/templates/">Templates</a>
-    </li>
-
-    <li class="docsNav-item ">
-      <a href="/docs/variables/">Variables</a>
-    </li>
-
-    <li class="docsNav-item ">
-      <a href="/docs/plugins/">Plugins</a>
-    </li>
-  </ol>
-</nav>
-
-
-
-      
-    </main>
-  </div>
-
-  <div class="footerWrapper">
-    <footer class="mainFooter clearfix">
-      <p class="footer-published">
-        joyfully published by <a href="https://github.com/yarnjs/yarn">yarn</a>
-      </p>
-    </footer>
-  </div>
-
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    enabled: <span class=hljs-literal>true</span>
+</code></pre></section></article><nav class=docsNav><h4>Getting Started</h4><ol class=docsNav-itemContainer><li class=docsNav-item><a href="/docs/installation/">Installation</a></li><li class=docsNav-item><a href="/docs/overview/">Overview</a></li><li class=docsNav-item><a href="/docs/usage/">Usage</a></li><li class="docsNav-item docsNav-item--active"><a href="/docs/configuration/">Configuration</a></li><li class=docsNav-item><a href="/docs/collections/">Collections</a></li><li class=docsNav-item><a href="/docs/file/">File</a></li><li class=docsNav-item><a href="/docs/templates/">Templates</a></li><li class=docsNav-item><a href="/docs/variables/">Variables</a></li><li class=docsNav-item><a href="/docs/plugins/">Plugins</a></li></ol></nav></main></div><div class=footerWrapper><footer class="mainFooter clearfix"><p class=footer-published>joyfully published by <a href=https://github.com/yarnjs/yarn>yarn</a></p></footer></div><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-70892705-1', 'auto');
-  ga('send', 'pageview');
-  </script>
-  <script type="text/javascript" src="/js/main-479c5e06fa.js"></script>
-</body>
-</html>
+  ga('send', 'pageview');</script><script type=text/javascript src=/js/main-479c5e06fa.js></script></body></html>
