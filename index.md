@@ -9,6 +9,21 @@ Written entirely in ES2015+ JavaScript.
 
 An emphasis on legible and extensible code, along with fast site builds.
 
+## [Get Started Now](docs/installation/)
+
+Get writing in just a few easy commands.
+
+```shell
+# Install yarn-cli
+npm install -g yarn-cli
+
+# Initialize your new yarn site
+mkdir mysite && cd mysite && yarn init
+
+# Build and serve your site!
+yarn build && yarn serve
+```
+
 ## Features
 
 - Custom permalink structure.
