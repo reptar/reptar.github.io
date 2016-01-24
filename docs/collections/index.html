@@ -1,32 +1,32 @@
 <!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel=stylesheet type=text/css><meta charset="utf-8"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>yarn</title><meta name=description content="Homepage of yarn, static site generator.
-"><meta name=keywords content="static site generator, static site, yarn, nodejs, javascript"><meta name=HandheldFriendly content="True"><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=/favicon.ico><link rel=stylesheet type=text/css href="/css/main-ddfa607e8e.css"></head><body class=docs-template><div class="headerWrapper clearfix"><header class="mainHeader clearfix"><div class=mainLogo><h1 class=mainLogo-title><a href="/">yarn</a></h1></div><nav class=mainNav><div class=mainNav-item><a href="/">Home</a></div><div class="mainNav-item mainNav-item--active"><a href="/docs/">Docs</a></div><div class=mainNav-item><a href=https://github.com/yarnjs/yarn>GitHub</a></div><div class=mainNav-item><iframe class=mainNav-item--iframe frameborder=0 scrolling=0 width=80px height=20px src="https://ghbtns.com/github-btn.html?user=yarnjs&repo=yarn&type=star&count=true"></iframe></div></nav></header></div><div class=contentWrapper><main id=content class=content role=main><article class=docsPage><header class=postHeader><h1 class=post-title>Collections</h1></header><section class=post-content><p>One of the core concepts of Yarn is the idea of a 'collection'. A collection is how Yarn understands your source files, how it decides what theme templates to apply, and how and where to write the files when building your site.</p><p>You configure Collections in your <code>_config.yml</code> file, underneath the <code>collections</code> key. Every key of that object is the name of a collection and its value is an object which configures the collection.</p><p>The primary configuration required is to define how a collection decides what files belong within itself. This is defined differently depending on the collection type.</p><p>Currently there are three collection types that you can create. Each has a different strategy that is used.</p><h2>FileSystemCollection</h2><p>This collection fills itself via the file system. Any files that are found within its defined path are added to the collection.</p><p>An example file system configuration:</p><pre><code class=language-yaml><span class=hljs-attribute>collections</span>:
-  <span class=hljs-attribute>default</span>:
-    <span class=hljs-attribute>path</span>: ./
-    <span class=hljs-attribute>template</span>: page
-</code></pre><p>This is a simple configuration that says that all files found within the root of the Yarn site belong in the <code>default</code> FileSystemCollection. When Yarn compiles your site it uses the <code>page.html</code> template file to render the source file.</p><p>A FileSystemCollection can also include additional configuration values that allow greater control over the output site. There's enough configuration included that the FileSystemCollection is the collection used when creating a simple blog site.</p><p>Here is the example configuration, with explanations for every configuration value found inline.</p><pre><code class=language-yaml>collections:
-  <span class=hljs-built_in>post</span>:
+"><meta name=keywords content="static site generator, static site, yarn, nodejs, javascript"><meta name=HandheldFriendly content="True"><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=/favicon.ico><link rel=stylesheet type=text/css href="/css/main-0c4bcdbaf9.css"></head><body class=docs-template><div class="headerWrapper clearfix"><header class="mainHeader clearfix"><div class=mainLogo><h1 class=mainLogo-title><a href="/">yarn</a></h1></div><nav class=mainNav><div class=mainNav-item><a href="/">Home</a></div><div class="mainNav-item mainNav-item--active"><a href="/docs/">Docs</a></div><div class=mainNav-item><a href=https://github.com/yarnjs/yarn>GitHub</a></div><div class=mainNav-item><iframe class=mainNav-item--iframe frameborder=0 scrolling=0 width=80px height=20px src="https://ghbtns.com/github-btn.html?user=yarnjs&repo=yarn&type=star&count=true"></iframe></div></nav></header></div><div class=contentWrapper><main id=content class=content role=main><article class=docsPage><header class=postHeader><h1 class=post-title>Collections</h1></header><section class=post-content><p>One of the core concepts of Yarn is the idea of a 'collection'. A collection is how Yarn understands your source files, how it decides what theme templates to apply, and how and where to write the files when building your site.</p><p>You configure Collections in your <code>_config.yml</code> file, underneath the <code>collections</code> key. Every key of that object is the name of a collection and its value is an object which configures the collection.</p><p>The primary configuration required is to define how a collection decides what files belong within itself. This is defined differently depending on the collection type.</p><p>Currently there are three collection types that you can create. Each has a different strategy that is used.</p><h2>FileSystemCollection</h2><p>This collection fills itself via the file system. Any files that are found within its defined path are added to the collection.</p><p>An example file system configuration:</p><pre><code class=language-yaml><span class=hljs-attr>collections:</span>
+<span class=hljs-attr>  default:</span>
+<span class=hljs-attr>    path:</span> ./
+<span class=hljs-attr>    template:</span> page
+</code></pre><p>This is a simple configuration that says that all files found within the root of the Yarn site belong in the <code>default</code> FileSystemCollection. When Yarn compiles your site it uses the <code>page.html</code> template file to render the source file.</p><p>A FileSystemCollection can also include additional configuration values that allow greater control over the output site. There's enough configuration included that the FileSystemCollection is the collection used when creating a simple blog site.</p><p>Here is the example configuration, with explanations for every configuration value found inline.</p><pre><code class=language-yaml><span class=hljs-attr>collections:</span>
+<span class=hljs-attr>  post:</span>
 
     <span class=hljs-comment># For every file found within `./_posts` they should be</span>
     <span class=hljs-comment># tentatively included in this collection, depending on</span>
     <span class=hljs-comment># additional configurations.</span>
-    path: ./<span class=hljs-title>_posts</span>
+<span class=hljs-attr>    path:</span> ./_posts
 
     <span class=hljs-comment># By default every post will use the `post.html` template.</span>
     <span class=hljs-comment># This can be over-ridden on a per-file basis if desired</span>
     <span class=hljs-comment># in the file's frontmatter.</span>
-    template: <span class=hljs-built_in>post</span>
+<span class=hljs-attr>    template:</span> post
 
     <span class=hljs-comment># This is the URL that every file should have when being</span>
     <span class=hljs-comment># built. This takes directly from the frontmatter of the</span>
     <span class=hljs-comment># file, making every value in the frontmatter available</span>
     <span class=hljs-comment># for use in the permalink configuration template string.</span>
-    permalink: /:title/
+<span class=hljs-attr>    permalink:</span> /:title/
 
     <span class=hljs-comment># Configure an optional filter to apply when deciding if a</span>
     <span class=hljs-comment># file should belong in this collection. Currently there are</span>
     <span class=hljs-comment># two types of filters that can be applied, both are shown</span>
     <span class=hljs-comment># as an example here.</span>
-    <span class=hljs-built_in>filter</span>:
+<span class=hljs-attr>    filter:</span>
 
       <span class=hljs-comment># This corresponds to the frontmatter metadata found</span>
       <span class=hljs-comment># in a file. If the value described here is found to be</span>
@@ -34,58 +34,58 @@
       <span class=hljs-comment># collection. In this case we're saying that any file</span>
       <span class=hljs-comment># which says it is a draft will not be included in</span>
       <span class=hljs-comment># this collection.</span>
-      metadata:
-        draft: <span class=hljs-constant>true</span>
+<span class=hljs-attr>      metadata:</span>
+<span class=hljs-attr>        draft:</span> <span class=hljs-literal>true</span>
 
       <span class=hljs-comment># This corresponds to the frontmatter of the file as well.</span>
       <span class=hljs-comment># Depending on what key is defined it checks to see if it</span>
       <span class=hljs-comment># is a date object, and if it is then it sees if it is a</span>
       <span class=hljs-comment># date in the future. If it is a date in the future then</span>
       <span class=hljs-comment># it is not included in the collection.</span>
-      future_date:
-        key: <span class=hljs-built_in>date</span>
+<span class=hljs-attr>      future_date:</span>
+<span class=hljs-attr>        key:</span> date
 
     <span class=hljs-comment># Once files have been included in the collection this</span>
     <span class=hljs-comment># defines how they should be sorted. The key value</span>
     <span class=hljs-comment># corresponds to the frontmatter metadata, so you can choose</span>
     <span class=hljs-comment># whatever property you want to dictate how the collection</span>
     <span class=hljs-comment># is ordered.</span>
-    <span class=hljs-built_in>sort</span>:
-      key: <span class=hljs-built_in>date</span>
-      order: <span class=hljs-keyword>descending</span>
+<span class=hljs-attr>    sort:</span>
+<span class=hljs-attr>      key:</span> date
+<span class=hljs-attr>      order:</span> descending
 
     <span class=hljs-comment># There is also the concept of pagination built into Yarn.</span>
     <span class=hljs-comment># If you want to break up the files within this</span>
     <span class=hljs-comment># FileSystemCollection you can.</span>
-    pagination:
+<span class=hljs-attr>    pagination:</span>
 
       <span class=hljs-comment># Decide what template to use when rendering a</span>
       <span class=hljs-comment># pagination page.</span>
-      template: index
+<span class=hljs-attr>      template:</span> index
 
       <span class=hljs-comment># Decide how many files should be included in each</span>
       <span class=hljs-comment># pagination page.</span>
-      size: <span class=hljs-number>6</span>
+<span class=hljs-attr>      size:</span> <span class=hljs-number>6</span>
 
       <span class=hljs-comment># Decide what the URL should be for the initial</span>
       <span class=hljs-comment># pagination page.</span>
-      permalink_index: /
+<span class=hljs-attr>      permalink_index:</span> /
 
       <span class=hljs-comment># Decide what the URL should be for every additional</span>
       <span class=hljs-comment># pagination page.</span>
-      permalink_page:  /page/:page/
-</code></pre><p>This creates a <code>post</code> collection.</p><p>Now you may note that there is overlap between the <code>post</code> collection and the <code>default</code> collection. However every collection is defined so that they are mutually exclusive. What that means is that no matter how many FileSystemCollection's you create they will only contain files that do not exist in other FileSystemCollection's. Under the hood Yarn creates an array of exclude paths which consists of every path that is defined in your <code>_config.yml</code> file. When a FileSystemCollection is deciding if a file should be included it checks if that file exists in one of the other FileSystemCollection path's and if it does then it is excluded.</p><h2>Metadata</h2><p>This collection is almost identical to a FileSystemCollection collection however its initial source of files is instead derived from the metadata found within every file.</p><p>For example to create a tags MetadataCollection:</p><pre><code class=language-yaml>collection<span class=hljs-variable>s:</span>
-  <span class=hljs-keyword>ta</span><span class=hljs-variable>g:</span>
-    metadat<span class=hljs-variable>a:</span> <span class=hljs-keyword>tags</span>
-</code></pre><p>This creates a <code>tag</code> collection in which every file that has frontmatter that contains a <code>tags</code> key will be included in this collection.</p><p>Every other configuration option as the FileSystemCollection is available, except the <code>path</code> key as that has no bearing on a MetadataCollection.</p><h2>Static</h2><p>This is the simplest type of collection. This collection offers no advanced configuration, as it simply copies its files to the output without any modification.</p><p>An example static collection configuration:</p><pre><code class=language-yaml>collections:
-  images:
-    path: ./images
-    # Required <span class=hljs-keyword>to</span> describe a collection <span class=hljs-keyword>as</span> <span class=hljs-keyword>static</span>.
-    <span class=hljs-keyword>static</span>: <span class=hljs-keyword>true</span>
+<span class=hljs-attr>      permalink_page:</span>  /page/:page/
+</code></pre><p>This creates a <code>post</code> collection.</p><p>Now you may note that there is overlap between the <code>post</code> collection and the <code>default</code> collection. However every collection is defined so that they are mutually exclusive. What that means is that no matter how many FileSystemCollection's you create they will only contain files that do not exist in other FileSystemCollection's. Under the hood Yarn creates an array of exclude paths which consists of every path that is defined in your <code>_config.yml</code> file. When a FileSystemCollection is deciding if a file should be included it checks if that file exists in one of the other FileSystemCollection path's and if it does then it is excluded.</p><h2>Metadata</h2><p>This collection is almost identical to a FileSystemCollection collection however its initial source of files is instead derived from the metadata found within every file.</p><p>For example to create a tags MetadataCollection:</p><pre><code class=language-yaml><span class=hljs-attr>collections:</span>
+<span class=hljs-attr>  tag:</span>
+<span class=hljs-attr>    metadata:</span> tags
+</code></pre><p>This creates a <code>tag</code> collection in which every file that has frontmatter that contains a <code>tags</code> key will be included in this collection.</p><p>Every other configuration option as the FileSystemCollection is available, except the <code>path</code> key as that has no bearing on a MetadataCollection.</p><h2>Static</h2><p>This is the simplest type of collection. This collection offers no advanced configuration, as it simply copies its files to the output without any modification.</p><p>An example static collection configuration:</p><pre><code class=language-yaml><span class=hljs-attr>collections:</span>
+<span class=hljs-attr>  images:</span>
+<span class=hljs-attr>    path:</span> ./images
+    <span class=hljs-comment># Required to describe a collection as static.</span>
+<span class=hljs-attr>    static:</span> <span class=hljs-literal>true</span>
 </code></pre><p>This says that for all files found within <code>./imags</code> are to be directly copied over into the built site.</p><p>No other configuration options are available as this is simply a straight copy of the files.</p></section></article><nav class=docsNav><h4>Getting Started</h4><ol class=docsNav-itemContainer><li class=docsNav-item><a href="/docs/installation/">Installation</a></li><li class=docsNav-item><a href="/docs/overview/">Overview</a></li><li class=docsNav-item><a href="/docs/usage/">Usage</a></li><li class=docsNav-item><a href="/docs/configuration/">Configuration</a></li><li class="docsNav-item docsNav-item--active"><a href="/docs/collections/">Collections</a></li><li class=docsNav-item><a href="/docs/file/">File</a></li><li class=docsNav-item><a href="/docs/templates/">Templates</a></li><li class=docsNav-item><a href="/docs/variables/">Variables</a></li><li class=docsNav-item><a href="/docs/plugins/">Plugins</a></li></ol></nav></main></div><div class=footerWrapper><footer class="mainFooter clearfix"><p class=footer-published>joyfully published by <a href=https://github.com/yarnjs/yarn>yarn</a></p></footer></div><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-70892705-1', 'auto');
-  ga('send', 'pageview');</script><script type=text/javascript src=/js/main-479c5e06fa.js></script></body></html>
+  ga('send', 'pageview');</script><script type=text/javascript src=/js/main-c614ff7b24.js></script></body></html>
