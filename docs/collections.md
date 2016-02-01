@@ -2,7 +2,7 @@
 title: Collections
 ---
 
-One of the core concepts of Yarn is the idea of a 'collection'. A collection is how Yarn understands your source files, how it decides what theme templates to apply, and how and where to write the files when building your site.
+One of the core concepts of Yarn is the idea of a 'collection'. A collection is how Yarn understands your source files, how it decides what templates to apply, and how and where to write the files when building your site.
 
 You configure Collections in your `_config.yml` file, underneath the `collections` key. Every key of that object is the name of a collection and its value is an object which configures the collection.
 
@@ -23,9 +23,9 @@ collections:
     template: page
 ```
 
-This is a simple configuration that says that all files found within the root of the Yarn site belong in the `default` FileSystemCollection. When Yarn compiles your site it uses the `page.html` template file to render the source file.
+This is a simple configuration that says that all files found within the root of the Yarn site belong in the Collection named `default`. When Yarn compiles your site it uses the `page.html` template file to render the source file.
 
-A FileSystemCollection can also include additional configuration values that allow greater control over the output site. There's enough configuration included that the FileSystemCollection is the collection used when creating a simple blog site.
+A FileSystemCollection can also include additional configuration values that allow greater control over the output. There's enough configuration available that a FileSystemCollection can create a simple blog site.
 
 Here is the example configuration, with explanations for every configuration value found inline.
 
@@ -82,15 +82,13 @@ collections:
       order: descending
 
     # There is also the concept of pagination built into Yarn.
-    # If you want to break up the files within this
-    # FileSystemCollection you can.
     pagination:
 
       # Decide what template to use when rendering a
       # pagination page.
       template: index
 
-      # Decide how many files should be included in each
+      # Decide how many Files should be included in each
       # pagination page.
       size: 6
 
@@ -105,7 +103,9 @@ collections:
 
 This creates a `post` collection.
 
-Now you may note that there is overlap between the `post` collection and the `default` collection. However every collection is defined so that they are mutually exclusive. What that means is that no matter how many FileSystemCollection's you create they will only contain files that do not exist in other FileSystemCollection's. Under the hood Yarn creates an array of exclude paths which consists of every path that is defined in your `_config.yml` file. When a FileSystemCollection is deciding if a file should be included it checks if that file exists in one of the other FileSystemCollection path's and if it does then it is excluded.
+Now you may note that there is overlap between the `post` collection and the `default` collection. However every collection is defined so that they are mutually exclusive. What that means is that no matter how many FileSystemCollection's you create they will only contain files that do not exist in other FileSystemCollection's.
+
+Under the hood Yarn creates an array of exclude paths which consists of every path that is defined in your `_config.yml` file. When a FileSystemCollection is deciding if a file should be included it checks if that file exists in one of the other FileSystemCollection path's, if so then it is excluded.
 
 ## Metadata
 
@@ -137,6 +137,6 @@ collections:
     static: true
 ```
 
-This says that for all files found within `./imags` are to be directly copied over into the built site.
+This says that for all files found within `./images` are to be directly copied to our output destination.
 
-No other configuration options are available as this is simply a straight copy of the files.
+No other configuration options are available as this is simply a straight copy.

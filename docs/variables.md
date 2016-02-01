@@ -2,7 +2,7 @@
 title: Variables
 ---
 
-Every template that is rendered has access to variables when it is rendered. The following describes what variables are accessible from a template file.
+Every template that is rendered has access to variables when it is rendered. The following describes what variables are accessible from a template file. They are all accessible within a template via `{{site.title}}` or `{{theme.css}}`, etc.
 
 ## site
 

@@ -23,6 +23,10 @@ This cleans the built files Yarn created.
 
 This is useful if you think some files aren't being properly updated by Yarn or you just want to remove all derived files.
 
+## `yarn new`
+
+Creates a new File on disk, ready for writing.
+
 ## `yarn serve`
 This creates a static web server with your built folder as the root.
 

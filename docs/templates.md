@@ -8,7 +8,7 @@ You should read the [nunjucks documentation](http://mozilla.github.io/nunjucks/t
 
 ## Built-in filters
 
-In addition to the filters available by nunjucks Yarn ships with a few additional built-in filters to make writing templates easier.
+In addition to the filters built-in to nunjucks, Yarn ships with a few additional built-in filters to make writing templates easier.
 
 Find the [source for built-in filters](http://github.com/yarnjs/yarn/blob/master/lib/render/template.js) in the GitHub repo.
 

@@ -9,9 +9,9 @@ Written entirely in ES2015+ JavaScript.
 
 An emphasis on legible and extensible code, along with fast site builds.
 
-## [Get Started Now](docs/installation/)
+## Get Started Now
 
-Get writing in just a few easy commands.
+[Getting started](docs/installation/) is quick and easy!
 
 ```shell
 # Install yarn-cli

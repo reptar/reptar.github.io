@@ -6,7 +6,7 @@ title: Installation
 
 Yarn is built on [nodejs](https://nodejs.org/en/) and as such you need to have nodejs installed to use Yarn.
 
-**Please note**: Yarn requires at least nodejs v4.0.0.
+**Note**: Yarn supports nodejs >= v4.0.0 and been tested on npm >= 3.0.0.
 
 You can install nodejs via its homepage or via [Homebrew](http://brew.sh/).
 
