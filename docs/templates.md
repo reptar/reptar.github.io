@@ -17,7 +17,7 @@ Find the [source for built-in filters](http://github.com/yarnjs/yarn/blob/master
 This allows you to easily make use of the [momentjs](http://momentjs.com/) library within a template. It takes a date to format and then a moment template string that it passes through to `momentjs`:
 
 ```html
-The year this site was published is: {{yarn.time | date('YYYY')}}.
+{% raw %}The year this site was published is: {{yarn.time | date('YYYY')}}.{% endraw %}
 ```
 
 ### slug(str)
@@ -25,7 +25,7 @@ The year this site was published is: {{yarn.time | date('YYYY')}}.
 Passes the string given to `Url.slug` which in turn passes the string to `node-slug`.
 
 ```html
-<a href="{{post.url | slug}}">Find the post here.</>
+{% raw %}<a href="{{file.url | slug}}">Find the post here.</a>{% endraw %}
 ```
 
 ### absolute_url(relativePath, basePath)
@@ -33,5 +33,5 @@ Passes the string given to `Url.slug` which in turn passes the string to `node-s
 This is useful when constructing URLs in your template and you want to make sure a full URL is outputted.
 
 ```html
-<a href="{{file.url | absolute_url(site.url)}}">Home</a>
+{% raw %}<a href="{{file.url | absolute_url(site.url)}}">Home</a>{% endraw %}
 ```
