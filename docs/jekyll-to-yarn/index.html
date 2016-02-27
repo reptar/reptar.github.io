@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel=stylesheet type=text/css><meta charset="utf-8"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>yarn</title><meta name=description content="Homepage of yarn, static site generator.
+"><meta name=keywords content="static site generator, static site, yarn, nodejs, javascript"><meta name=HandheldFriendly content="True"><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=/favicon.ico><link rel=stylesheet type=text/css href="/css/main-0c4bcdbaf9.css"></head><body class=docs-template><div class="headerWrapper clearfix"><header class="mainHeader clearfix"><div class=mainLogo><h1 class=mainLogo-title><a href="/">yarn</a></h1></div><nav class=mainNav><div class=mainNav-item><a href="/">Home</a></div><div class="mainNav-item mainNav-item--active"><a href="/docs/">Docs</a></div><div class=mainNav-item><a href=https://github.com/yarnjs/yarn>GitHub</a></div><div class=mainNav-item><iframe class=mainNav-item--iframe frameborder=0 scrolling=0 width=80px height=20px src="https://ghbtns.com/github-btn.html?user=yarnjs&repo=yarn&type=star&count=true"></iframe></div></nav></header></div><div class=contentWrapper><main id=content class=content role=main><article class=docsPage><header class=postHeader><h1 class=post-title>Jekyll to Yarn</h1></header><section class=post-content><p>Looking to convert your Jekyll blog to use Yarn? Here's the place.</p><p>You can look at an example repo <a href=https://github.com/yarnjs/jekyll-to-yarn>jekyll-to-yarn</a> which shows commit-by-commit how to convert a new Jekyll site to a yarn site.</p><p>Or if you'd rather just understand the steps involved this guide will show you what to do.</p><h2>1. Convert your <code>_config.yml</code> file to be compatible with Yarn.</h2><p>There's a bunch of properties that Jekyll puts at the top level that Yarn expects to be nested under the <code>site</code> property.</p><p>The following properties need to be moved and nested underneath <code>site</code>, like so:</p><pre><code class=language-yaml><span class=hljs-attr>site:</span>
+<span class=hljs-attr>  title:</span>
+<span class=hljs-attr>  email:</span>
+<span class=hljs-attr>  description:</span>
+<span class=hljs-attr>  baseurl:</span>
+<span class=hljs-attr>  url:</span>
+<span class=hljs-attr>  twitter_username:</span>
+<span class=hljs-attr>  github_username:</span>
+</code></pre><p>Jekyll requires you place all your blog posts in the <code>_posts</code> folder for it to find them. Yarn makes no assumptions about where your blog posts reside. As such you're free to customize where they should exist.</p><p>To make Yarn find your posts as Jekyll would add the following to your <code>_config.yml</code> file:</p><pre><code class=language-yaml><span class=hljs-attr>collections:</span>
+<span class=hljs-attr>  default:</span>
+<span class=hljs-attr>    path:</span> ./
+<span class=hljs-attr>    template:</span> page
+<span class=hljs-attr>  post:</span>
+<span class=hljs-attr>    path:</span> ./_posts
+<span class=hljs-attr>    template:</span> post
+<span class=hljs-attr>    permalink:</span> /:title/
+<span class=hljs-attr>    pagination:</span> <span class=hljs-literal>false</span>
+<span class=hljs-attr>  tag:</span> <span class=hljs-literal>false</span>
+</code></pre><h2>2. Add the Jekyll theme for Yarn.</h2><p>Yarn provides a ready to use theme that mirrors the style of the default Jekyll theme.</p><p>Create a <code>package.json</code> file at the root of your Jekyll site that contains the following:</p><pre><code class=language-json>{
+  "<span class=hljs-attr>main</span>": <span class=hljs-string>"yarn"</span>,
+  "<span class=hljs-attr>dependencies</span>": {
+    "<span class=hljs-attr>yarn-theme-jekyll</span>": <span class=hljs-string>"^1.0.0"</span>
+  },
+}
+</code></pre><p>Then run <code>npm install</code>.</p><p>Then tell Yarn to use this theme when compiling your site by adding the following line to your <code>_config.yml</code> file:</p><pre><code class=language-yaml><span class=hljs-attr>theme:</span> jekyll
+</code></pre><h2>3. Update your source files to make use of Yarn features.</h2><p>There are a few distinct differences between Jekyll and Yarn.</p><h3>1. Yarn does not allow the ambiguous form of Yaml lists.</h3><p>This:</p><pre><code class=language-yaml><span class=hljs-attr>categories:</span> my categories here
+</code></pre><p>Must be updated to:</p><pre><code class=language-yaml><span class=hljs-attr>categories:</span>
+<span class=hljs-bullet>-</span> my
+<span class=hljs-bullet>-</span> categories
+<span class=hljs-bullet>-</span> here
+</code></pre><h3>2. Yarn uses regular Markdown for rendering code:</h3><p>Rather than this:</p><pre><code>{% highlight ruby %}
+<span class=hljs-function><span class=hljs-keyword>def</span> <span class=hljs-title>print_hi</span><span class=hljs-params>(name)</span></span>
+  puts <span class=hljs-string>"Hi, <span class=hljs-subst>#{name}</span>"</span>
+<span class=hljs-keyword>end</span>
+print_hi(<span class=hljs-string>'Tom'</span>)
+<span class=hljs-comment>#=&gt; prints 'Hi, Tom' to STDOUT.</span>
+{% endhighlight %}
+</code></pre><p>Do this:</p><pre><code class=language-ruby><span class=hljs-string>``</span><span class=hljs-string>`ruby
+def print_hi(name)
+  puts "Hi, <span class=hljs-subst>#{name}</span>"
+end
+print_hi('Tom')
+#=&gt; prints 'Hi, Tom' to STDOUT.
+`</span> <span class=hljs-string>``</span>
+</code></pre><h3>3. You control what template is used to render a source file with the <code>template</code> value. You must change all Frontmatter values from <code>layout</code> to <code>template</code>.</h3><p>From:</p><pre><code><span class=hljs-meta>---</span>
+<span class=hljs-attr>layout:</span> default
+<span class=hljs-meta>---</span>
+
+Content
+</code></pre><p>To:</p><pre><code><span class=hljs-meta>---</span>
+<span class=hljs-attr>template:</span> default
+<span class=hljs-meta>---</span>
+
+Content
+</code></pre><h3>4. You control what the URL of a post should be via <code>url</code>.</h3><p>rom:</p><pre><code><span class=hljs-meta>---</span>
+<span class=hljs-attr>permalink:</span> /about/
+<span class=hljs-meta>---</span>
+
+Content
+</code></pre><p>To:</p><pre><code><span class=hljs-meta>---</span>
+<span class=hljs-attr>url:</span> /about/
+<span class=hljs-meta>---</span>
+
+Content
+</code></pre><h3>5. Your list of all your posts is found on the <code>collections.post.files</code> variable.</h3><p>From:</p><pre><code><span class=xml></span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>for</span></span> post <span class=hljs-keyword>in</span> site.posts %}</span><span class=xml>
+</span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>endfor</span></span> %}</span><span class=xml>
+</span></code></pre><p>To:</p><pre><code><span class=xml></span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>for</span></span> post <span class=hljs-keyword>in</span> collections.post.files %}</span><span class=xml>
+</span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>endfor</span></span> %}</span><span class=xml>
+</span></code></pre><h3>6. You must update your filters to use Yarn filters:</h3><p>Usage of the <code>date</code> filter needs updating.</p><p><code>date: &quot;%b %-d, %Y&quot;</code> updated to <code>date('MMM D, YYYY')</code></p><p>Usage of prepending content needs updating.</p><p><code>prepend: site.baseurl</code> to <code>absolute_url</code></p><h2>7. Update your <code>feed.xml</code> file to use Yarn filter and tags.</h2><p>It should look close to:</p><pre><code><span class=xml>---
+template: null
+---
+<span class=hljs-meta>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class=hljs-tag>&lt;<span class=hljs-name>rss</span> <span class=hljs-attr>version</span>=<span class=hljs-string>"2.0"</span> <span class=hljs-attr>xmlns:atom</span>=<span class=hljs-string>"http://www.w3.org/2005/Atom"</span>&gt;</span>
+  <span class=hljs-tag>&lt;<span class=hljs-name>channel</span>&gt;</span>
+    <span class=hljs-tag>&lt;<span class=hljs-name>title</span>&gt;</span></span><span class=hljs-template-variable>{{ site.title | escape }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>title</span>&gt;</span>
+    <span class=hljs-tag>&lt;<span class=hljs-name>description</span>&gt;</span></span><span class=hljs-template-variable>{{ site.description | escape }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>description</span>&gt;</span>
+    <span class=hljs-tag>&lt;<span class=hljs-name>link</span>&gt;</span></span><span class=hljs-template-variable>{{ site.url }}</span><span class=xml></span><span class=hljs-template-variable>{{ site.baseurl }}</span><span class=xml>/<span class=hljs-tag>&lt;/<span class=hljs-name>link</span>&gt;</span>
+    <span class=hljs-tag>&lt;<span class=hljs-name>atom:link</span> <span class=hljs-attr>href</span>=<span class=hljs-string>"</span></span></span><span class=hljs-template-variable>{{ "/feed.xml" | absolute_url }}</span><span class=xml><span class=hljs-tag><span class=hljs-string>"</span> <span class=hljs-attr>rel</span>=<span class=hljs-string>"self"</span> <span class=hljs-attr>type</span>=<span class=hljs-string>"application/rss+xml"</span>/&gt;</span>
+    <span class=hljs-tag>&lt;<span class=hljs-name>pubDate</span>&gt;</span></span><span class=hljs-template-variable>{{ site.time | date }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>pubDate</span>&gt;</span>
+    <span class=hljs-tag>&lt;<span class=hljs-name>lastBuildDate</span>&gt;</span></span><span class=hljs-template-variable>{{ site.time | date }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>lastBuildDate</span>&gt;</span>
+    <span class=hljs-tag>&lt;<span class=hljs-name>generator</span>&gt;</span>yarn v</span><span class=hljs-template-variable>{{ yarn.version }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>generator</span>&gt;</span>
+    </span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>for</span></span> post <span class=hljs-keyword>in</span> collections.post.files | reverse | limit(10) %}</span><span class=xml>
+      <span class=hljs-tag>&lt;<span class=hljs-name>item</span>&gt;</span>
+        <span class=hljs-tag>&lt;<span class=hljs-name>title</span>&gt;</span></span><span class=hljs-template-variable>{{ post.title | escape }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>title</span>&gt;</span>
+        <span class=hljs-tag>&lt;<span class=hljs-name>description</span>&gt;</span></span><span class=hljs-template-variable>{{ post.content | escape }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>description</span>&gt;</span>
+        <span class=hljs-tag>&lt;<span class=hljs-name>pubDate</span>&gt;</span></span><span class=hljs-template-variable>{{ post.date | date }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>pubDate</span>&gt;</span>
+        <span class=hljs-tag>&lt;<span class=hljs-name>link</span>&gt;</span></span><span class=hljs-template-variable>{{ post.url | absolute_url }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>link</span>&gt;</span>
+        <span class=hljs-tag>&lt;<span class=hljs-name>guid</span> <span class=hljs-attr>isPermaLink</span>=<span class=hljs-string>"true"</span>&gt;</span></span><span class=hljs-template-variable>{{ post.url | absolute_url }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>guid</span>&gt;</span>
+        </span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>for</span></span> tag <span class=hljs-keyword>in</span> post.tags %}</span><span class=xml>
+        <span class=hljs-tag>&lt;<span class=hljs-name>category</span>&gt;</span></span><span class=hljs-template-variable>{{ tag | escape }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>category</span>&gt;</span>
+        </span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>endfor</span></span> %}</span><span class=xml>
+        </span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>for</span></span> cat <span class=hljs-keyword>in</span> post.categories %}</span><span class=xml>
+        <span class=hljs-tag>&lt;<span class=hljs-name>category</span>&gt;</span></span><span class=hljs-template-variable>{{ cat | escape }}</span><span class=xml><span class=hljs-tag>&lt;/<span class=hljs-name>category</span>&gt;</span>
+        </span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>endfor</span></span> %}</span><span class=xml>
+      <span class=hljs-tag>&lt;/<span class=hljs-name>item</span>&gt;</span>
+    </span><span class=hljs-template-tag>{% <span class=hljs-name><span class=hljs-name>endfor</span></span> %}</span><span class=xml>
+  <span class=hljs-tag>&lt;/<span class=hljs-name>channel</span>&gt;</span>
+<span class=hljs-tag>&lt;/<span class=hljs-name>rss</span>&gt;</span>
+</span></code></pre></section></article><nav class=docsNav><h4>Getting Started</h4><ol class=docsNav-itemContainer><li class=docsNav-item><a href="/docs/installation/">Installation</a></li><li class=docsNav-item><a href="/docs/overview/">Overview</a></li><li class=docsNav-item><a href="/docs/usage/">Usage</a></li><li class=docsNav-item><a href="/docs/configuration/">Configuration</a></li><li class=docsNav-item><a href="/docs/collections/">Collections</a></li><li class=docsNav-item><a href="/docs/file/">File</a></li><li class=docsNav-item><a href="/docs/themes/">Themes</a></li><li class=docsNav-item><a href="/docs/templates/">Templates</a></li><li class=docsNav-item><a href="/docs/variables/">Variables</a></li><li class=docsNav-item><a href="/docs/plugins/">Plugins</a></li><li class="docsNav-item docsNav-item--active"><a href="/docs/jekyll-to-yarn/">Jekyll to Yarn</a></li></ol></nav></main></div><div class=footerWrapper><footer class="mainFooter clearfix"><p class=footer-published>joyfully published by <a href=https://github.com/yarnjs/yarn>yarn</a></p></footer></div><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70892705-1', 'auto');
+  ga('send', 'pageview');</script><script type=text/javascript src=/js/main-c614ff7b24.js></script></body></html>
