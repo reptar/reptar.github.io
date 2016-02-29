@@ -9,3 +9,5 @@ All of the configuration for your Yarn site resides in your `_config.yml` file. 
 Understanding the `_config.yml` file, and how to update it, is how you will make Yarn work best for you.
 
 ### [Read all default settings and what they control from the default settings file.](https://github.com/yarnjs/yarn/blob/master/lib/config/defaults.yml)
+
+**Note**: Yarn provides sensible default values for your `_config.yml` by taking the above default settings as the base settings onto which your local `_config.yml` file overwrites. 
