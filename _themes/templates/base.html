@@ -43,10 +43,14 @@
         </div>
       </nav>
     </header>
+
+    {% if file.extended_header == true %}
+      {% include "_extended_header.html" %}
+    {% endif %}
   </div>
 
   <div class="contentWrapper">
-    <main id="content" class="content" role="main">
+    <main class="mainContent {% if file.content_full_width == true %}mainContent__fullWidth{% endif %}" role="main">
       {% block content %}{% endblock%}
 
       {% include "_pagination.html" %}

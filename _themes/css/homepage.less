@@ -1,0 +1,38 @@
+.homeSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > div {
+    margin: 20px 40px;
+  }
+
+  .homeSection-block {
+
+    > h3 {
+      font-size: 24px;
+    }
+  }
+
+  .homeSection-blockBig {
+    max-width: 35%;
+  }
+
+  .homeSection-blockSmall {
+    width: 25%;
+  }
+
+  .homeSection-checkmarkList {
+    > ul li {
+      list-style-type: none;
+      position: relative;
+      padding-left: 20px;
+
+      &:before {
+        content: '\2713'; // checkmark entity
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+}

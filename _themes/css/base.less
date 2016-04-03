@@ -33,12 +33,21 @@ h4 {
 }
 
 .mainHeader,
-#content,
+.mainContent,
 .mainFooter,
 .pagination {
   max-width: @size-containerWidth;
   margin: 0 auto;
   padding: @size-layout-verticalSpacing 0;
+}
+
+.mainContent.mainContent__fullWidth {
+  max-width: 100%;
+  padding: 0;
+
+  > .post {
+    padding: 0;
+  }
 }
 
 // Layout styles for mainHeader and children.
@@ -89,7 +98,7 @@ h4 {
       font-family: 'Shadows Into Light', sans-serif;
       text-decoration: none;
       font-size: 50px;
-      color: #333;
+      color: @color-yarnLogoText;
     }
   }
 }
@@ -135,6 +144,7 @@ h4 {
   .mainNav-item--iframe {
     vertical-align: middle;
     margin-top: -5px;
+    margin-left: 10px;
   }
 }
 

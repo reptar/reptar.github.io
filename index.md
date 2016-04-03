@@ -1,50 +1,12 @@
 ---
 title: Home
 include_post_header: false
+extended_header: true
+content_full_width: true
 ---
 
-Spin your own yarn.
-
-A static site generator written entirely in ES2015+ JavaScript.
-
-<br/>
-
-**Feature Packed**
-
-Easily build a blog. Pagination is built-in. So are tag pages.
-
-Yarn can exclude drafts or posts that are written in the future. If that's not enough flexibility you can write your own filters.
-
-**Flexible**
-
-Yarn makes no assumptions. If you're coming from a different static site generator don't worry about changing your files to match what Yarn requires, just update the `_config.yml` file to let Yarn know how it should understand your files.
-
-**Themable**
-
-Yarn has theme support, letting you change site themes easily.
-
-Yarn uses [nunjucks](http://mozilla.github.io/nunjucks/) as its template engine. This gives you power to create rich and beautiful layouts.
-
-Yarn supports [LESS](http://lesscss.org/), [SASS](http://sass-lang.com/), and [Autoprefixer](https://github.com/postcss/autoprefixer) to make your stylesheets beautiful and easy to maintain.
-
-For your JavaScript feel at home using ES2015+ features via [Babel](http://babeljs.io/). All assets are bundled via [Browserify](http://browserify.org/) giving you flexibility in how you break up your files.
-
-When rendering files be sure to use the built-in HTML minifier to reduce your HTML file sizes for even faster loading.
-
-And don't worry, RSS is supported as well.
-
-**CLI Interface**
-
-Use the yarn CLI to easily manage your site.
-
-You can scaffold a new Yarn site, create a new post, build your site, and start up a web server.
-
-Yarn also has a watch mode for super fast progressive updates. Yarn will only update the file you modify lettting you write and read at the same time.
-
-
-## Get Started Now
-
-[Getting started](docs/installation/) is quick and easy!
+<section class="homeSection">
+  <div class="homeSection-block homeSection-blockSmall">
 
 ```shell
 # Install yarn-cli
@@ -56,3 +18,84 @@ mkdir mysite && cd mysite && yarn init
 # Build and serve your site!
 yarn build && yarn serve
 ```
+
+  </div>
+
+  <div class="homeSection-block homeSection-blockBig">
+
+### Installation
+
+Installing Yarn locally is as simple as installing an npm module.
+
+After Yarn is installed you can quickly initialize your first Yarn site and build it through two simple CLI commands.
+
+[Read the full getting started instructions](docs/installation/) for an in depth explanation on how to get going with Yarn.
+
+  </div>
+</section>
+
+
+<section class="homeSection">
+
+  <div class="homeSection-block homeSection-blockBig">
+
+### Features
+
+Yarn was built to have feature parity with most mature blogging software.
+
+Out of the box Yarn can paginate your posts along with create tag pages.
+
+You can configure your Yarn site anyway you like. That means [migrating from other systems](/docs/jekyll-to-yarn/) is possible without a full re-write.
+
+There's also theme support that is expressive, flexible, and sharable. You can use all the modern front-end tools to create rich and beautiful designs.
+
+  </div>
+
+
+  <div class="homeSection-block homeSection-blockSmall homeSection-checkmarkList">
+
+- 100% open source
+- Flexible configuration
+- Pagination
+- Tag support
+- Incremental builds
+- Markdown by [remarkable](https://github.com/jonschlinkert/remarkable/)
+- Template by [nunjucks](http://mozilla.github.io/nunjucks/)
+- Themes with support for [LESS](http://lesscss.org/), [SASS](http://sass-lang.com/), [Autoprefixer](https://github.com/postcss/autoprefixer), [Babel](http://babeljs.io/), [Browserify](http://browserify.org/)
+- HTML minification by [html-minifier](https://github.com/kangax/html-minifier)
+
+  </div>
+</section>
+
+
+<section class="homeSection">
+  <div class="homeSection-block homeSection-blockSmall">
+
+<img src="images/yarn-build-cli.png" alt="Yarn build" />
+
+  </div>
+  <div class="homeSection-block homeSection-blockBig">
+
+### Fast
+
+Yarn was built to be fast.
+
+There's nothing worse than building a large static site and having to wait until it's done. That's why we're doing everything we can to make builds as fast as possible.
+
+Yarn supports incremental builds, allowing you to re-build your site, only building files that changed.
+
+  </div>
+</section>
+
+
+<section class="homeSection">
+  <div class="homeSection-block homeSection-blockBig">
+
+### Open Source
+
+Yarn is 100% open source. It is for and by the community.
+
+All contributions are welcome. [Contribute today!](https://github.com/yarnjs/yarn)
+
+  </div>
+</section>
