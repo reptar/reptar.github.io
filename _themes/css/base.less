@@ -38,7 +38,7 @@ h4 {
 .pagination {
   max-width: @size-containerWidth;
   margin: 0 auto;
-  padding: @size-layout-verticalSpacing 0;
+  padding: @size-layout-verticalSpacing 20px;
 }
 
 .mainContent.mainContent__fullWidth {
@@ -73,6 +73,21 @@ h4 {
     a:hover {
       opacity: 0.8;
     }
+  }
+}
+
+@media @mediaQuery-smartphones {
+  .mainHeader {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .mainNav-item--iframe {
+    position: absolute;
+    right: 5px;
+    top: 30px;
   }
 }
 
@@ -155,6 +170,6 @@ h4 {
 
 .mainFooter {
   .footer-published {
-    float: left;
+    text-align: center;
   }
 }

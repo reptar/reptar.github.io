@@ -61,7 +61,7 @@ There's also theme support that is expressive, flexible, and sharable. You can u
 - Incremental builds
 - Markdown by [remarkable](https://github.com/jonschlinkert/remarkable/)
 - Template by [nunjucks](http://mozilla.github.io/nunjucks/)
-- Themes with support for [LESS](http://lesscss.org/), [SASS](http://sass-lang.com/), [Autoprefixer](https://github.com/postcss/autoprefixer), [Babel](http://babeljs.io/), [Browserify](http://browserify.org/)
+- Themes with support for <br/>[LESS](http://lesscss.org/), [SASS](http://sass-lang.com/), [Autoprefixer](https://github.com/postcss/autoprefixer),<br/>[Babel](http://babeljs.io/), [Browserify](http://browserify.org/)
 - HTML minification by [html-minifier](https://github.com/kangax/html-minifier)
 
   </div>

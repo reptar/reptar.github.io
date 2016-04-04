@@ -19,7 +19,6 @@
   }
 
   .homeSection-blockSmall {
-    width: 25%;
   }
 
   .homeSection-checkmarkList {
@@ -33,6 +32,21 @@
         position: absolute;
         left: 0;
       }
+    }
+  }
+}
+
+@media @mediaQuery-smartphones {
+  .homeSection {
+    flex-direction: column;
+
+    .homeSection-blockBig {
+      max-width: 90%;
+    }
+
+    .homeSection-blockSmall {
+      max-width: 90%;
+      width: inherit;
     }
   }
 }

@@ -31,3 +31,18 @@
     font-weight: bold;
   }
 }
+
+@media @mediaQuery-smartphones {
+  .docsContainer {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .docsPage, .docsNav {
+    width: 100%;
+  }
+
+  .docsNav {
+    padding-left: 0;
+  }
+}

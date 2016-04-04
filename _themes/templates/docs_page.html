@@ -4,18 +4,20 @@
 
 {% block content %}
 
-<article class="docsPage">
+<div class="docsContainer">
+  <article class="docsPage">
 
-  <header class="postHeader">
-    <h1 class="post-title">{{file.title}}</h1>
-  </header>
+    <header class="postHeader">
+      <h1 class="post-title">{{file.title}}</h1>
+    </header>
 
-  <section class="post-content">
-    {{file.content | safe}}
-  </section>
+    <section class="post-content">
+      {{file.content | safe}}
+    </section>
 
-</article>
+  </article>
 
-{% include "_docs_nav.html" %}
+  {% include "_docs_nav.html" %}  
+</div>
 
 {% endblock%}
