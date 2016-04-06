@@ -32,6 +32,29 @@ This creates a static web server with your built folder as the root.
 
 This is useful to quickly preview your built Yarn site locally.
 
+Note: Running `yarn serve` assumes that you have `http-server` installed. To install:
+
+    $ npm install -g http-server
+
+Another example of temporary static file serving could be something like [Python's SimpleHTTPServer](https://docs.python.org/2/library/simplehttpserver.html):
+
+    $ cd _site
+    $ python -m SimpleHTTPServer 8080
+
+When you're ready to more permanently serve your static site, you might want to consider something like NGINX. Here's a sample NGINX site config:
+
+    server {
+      listen 80;
+      server_name myyarnsite.com;
+
+      root /path/to/myyarnsite.com/_site;
+  
+      location / {
+      }
+    }
+
+More info: [https://www.nginx.com/resources/admin-guide/serving-static-content/](https://www.nginx.com/resources/admin-guide/serving-static-content/)
+
 ## `yarn watch`
 This creates a local static web server and also watches for any changes in your source files to partially rebuild your Yarn site.
 
