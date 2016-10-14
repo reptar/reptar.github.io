@@ -1,3 +1,3 @@
-# yarn's homepage
+# reptar's homepage
 
-the homepage and documentation for yarn.
+the homepage and documentation for reptar.

@@ -1,13 +1,13 @@
 {
-  "main": "yarn-homepage",
+  "main": "reptar-homepage",
   "scripts": {
-    "deploy": "yarn build && gdd --branch master --src _site --remote origin"
+    "deploy": "reptar build && gdd --branch master --src _site --remote origin"
   },
   "dependencies": {
     "bootstrap": "^3.3.5",
     "normalize.css": "^3.0.3",
-    "yarn-excerpt": "^0.5.0",
-    "yarn-html-minifier": "^0.5.0"
+    "reptar-excerpt": "^0.5.0",
+    "reptar-html-minifier": "^0.5.0"
   },
   "devDependencies": {
     "@hswolff/git-directory-deploy": "^0.5.5"
