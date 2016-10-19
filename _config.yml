@@ -21,50 +21,52 @@ theme: 'default'
 # If we should remove the compile destination folder before writing.
 clean_destination: true
 
-# Collections of content.
+file:
+  defaults:
+    -
+      scope:
+         path: ./
+      values:
+        template: page
+    -
+      scope:
+        path: ./docs/
+      values:
+        template: docs_page
+        permalink: /docs/:title/
+    -
+      scope:
+        path: ./_posts
+      values:
+        template: post
+        permalink: /blog/:title/
+  filters:
+    metadata:
+      draft: true
+    future_date:
+      key: date
+
 collections:
-  default:
-    path: ./
-    template: page
-  docs:
-    path: ./docs/
-    template: docs_page
-    permalink: /docs/:title/
-  images:
-    path: ./images
-    static: true
   post:
     path: ./_posts
-    template: post
-    permalink: /blog/:title/
-    filter:
-      metadata:
-        draft: true
-      future_date:
-        key: date
+    template: index
+    page_size: 6
     sort:
       key: date
       order: descending
-    pagination:
-      template: index
-      size: 6
-      permalink_index: /blog/
-      permalink_page:  /blog/page/:page/
+    permalink:
+      index: /blog/
+      page:  /blog/page/:page/
   tag:
+    template: tag
+    page_size: 6
     metadata: tags
     sort:
       key: date
       order: descending
-    filter:
-      metadata:
-        draft: true
-      future_date:
-        key: date
-    pagination:
-      template: tag
-      size: 6
-      permalink_index: /blog/tag/:metadata/
-      permalink_page:  /blog/tag/:metadata/:page/
+    permalink:
+      index: /blog/tag/:metadata/
+      page:  /blog/tag/:metadata/:page/
 
 plugins:
   html-minifier:
