@@ -17,7 +17,7 @@ It should be easy to use out of the box and easy to extend for whatever your use
 
 Reptar was built to have feature parity with most mature blogging software. Out of the box Reptar can paginate your posts along with create tag pages.
 
-You can configure your Reptar site anyway you like. That means [migrating from other systems](/docs/jekyll-to-yarn/) is easy.
+You can configure your Reptar site anyway you like. That means [migrating from other systems](/docs/jekyll-to-reptar/) is easy.
 
 There's also theme support that is expressive, flexible, and sharable. You can use all the modern front-end tools to create rich and beautiful designs.
 

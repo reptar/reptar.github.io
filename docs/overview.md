@@ -24,7 +24,7 @@ Reptar will then load all [plugins](/docs/plugins/) you have configured. It load
 
 This is one of the major steps Reptar takes when reading your site.
 
-For every file that is found Reptar will create a [File](/docs/file/) object to represent it in memory. You can [read the source code](https://github.com/yarnjs/yarn/blob/master/lib/file.js) to find in detail what information is in a File object. This includes Markdown files as well as static files, everything is tracked.
+For every file that is found Reptar will create a [File](/docs/file/) object to represent it in memory. You can [read the source code](https://github.com/reptar/reptar/blob/master/lib/file.js) to find in detail what information is in a File object. This includes Markdown files as well as static files, everything is tracked.
 
 ### Populate Collections
 
@@ -38,4 +38,4 @@ That involves writing your theme's assets to disk, writing every processed File 
 
 ### Done
 
-At this point Reptar has created your site! You're ready to preview it locally via `yarn serve` or to push it up to your webhost!
+At this point Reptar has created your site! You're ready to preview it locally via `reptar serve` or to push it up to your webhost!

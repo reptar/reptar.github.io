@@ -38,7 +38,7 @@ An example theme object:
 
 ## reptar
 
-This contains meta information about your Yarn installation.
+This contains meta information about your Reptar installation.
 
 ```json
 {
