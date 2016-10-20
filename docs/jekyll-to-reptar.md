@@ -1,16 +1,16 @@
 ---
-title: Jekyll to Yarn
+title: Jekyll to Reptar
 ---
 
-Looking to convert your Jekyll blog to use Yarn? Here's the place.
+Looking to convert your Jekyll blog to use Reptar? Here's the place.
 
-You can look at an example repo [jekyll-to-yarn](https://github.com/yarnjs/jekyll-to-yarn) which shows commit-by-commit how to convert a new Jekyll site to a yarn site.
+You can look at an example repo [jekyll-to-reptar](https://github.com/reptar/jekyll-to-reptar) which shows commit-by-commit how to convert a new Jekyll site to a reptar site.
 
 Or if you'd rather just understand the steps involved this guide will show you what to do.
 
-## 1. Convert your `_config.yml` file to be compatible with Yarn.
+## 1. Convert your `_config.yml` file to be compatible with Reptar.
 
-There's a bunch of properties that Jekyll puts at the top level that Yarn expects to be nested under the `site` property.
+There's a bunch of properties that Jekyll puts at the top level that Reptar expects to be nested under the `site` property.
 
 The following properties need to be moved and nested underneath `site`, like so:
 
@@ -25,51 +25,54 @@ site:
   github_username:
 ```
 
-Jekyll requires you place all your blog posts in the `_posts` folder for it to find them.  Yarn makes no assumptions about where your blog posts reside. As such you're free to customize where they should exist.
+Jekyll requires you place all your blog posts in the `_posts` folder for it to find them.  Reptar makes no assumptions about where your blog posts reside. As such you're free to customize where they should exist.
 
-To make Yarn find your posts as Jekyll would add the following to your `_config.yml` file:
+To make Reptar find your posts as Jekyll would add the following to your `_config.yml` file:
 
 ```yaml
-collections:
-  default:
-    path: ./
-    template: page
-  post:
-    path: ./_posts
-    template: post
-    permalink: /:title/
-    pagination: false
-  tag: false
+file:
+  defaults:
+    -
+      scope:
+         path: ./
+      values:
+        template: page
+    -
+      scope:
+         path: ./_posts
+      values:
+        template: post
+        permalink: /:title/
 ```
 
-## 2. Add the Jekyll theme for Yarn.
+## 2. Add the Jekyll theme for Reptar.
 
-Yarn provides a ready to use theme that mirrors the style of the default Jekyll theme.
+Reptar provides a ready to use theme that mirrors the style of the default Jekyll theme.
 
 Create a `package.json` file at the root of your Jekyll site that contains the following:
 
 ```json
 {
-  "main": "yarn",
+  "main": "reptar",
   "dependencies": {
-    "yarn-theme-jekyll": "^1.0.0"
+    "reptar-theme-jekyll": "^1.0.0"
   },
 }
 ```
 
 Then run `npm install`.
 
-Then tell Yarn to use this theme when compiling your site by adding the following line to your `_config.yml` file:
+Then tell Reptar to use this theme when compiling your site by adding the following line to your `_config.yml` file:
 
 ```yaml
 theme: jekyll
 ```
 
-## 3. Update your source files to make use of Yarn features.
+## 3. Update your source files to make use of Reptar features.
 
-There are a few distinct differences between Jekyll and Yarn.
+There are a few distinct differences between Jekyll and Reptar.
 
-### 1. Yarn does not allow the ambiguous form of Yaml lists.
+### 1. Reptar does not allow the ambiguous form of Yaml lists.
 
 This:
 
@@ -86,7 +89,7 @@ categories:
 - here
 ```
 
-### 2. Yarn uses regular Markdown for rendering code:
+### 2. Reptar uses regular Markdown for rendering code:
 
 Rather than this:
 
@@ -158,7 +161,7 @@ url: /about/
 Content
 ```
 
-### 5. Your list of all your posts is found on the `collections.post.files` variable.
+### 5. Your list of all your posts is found on the `files` variable.
 
 From:
 
@@ -171,12 +174,12 @@ From:
 To:
 
 ```
-{% for post in collections.post.files %}
+{% for post in files %}
 {% endfor %}
 ```
 {% endraw %}
 
-### 6. You must update your filters to use Yarn filters:
+### 6. You must update your filters to use Reptar filters:
 
 Usage of the `date` filter needs updating.
 
@@ -186,7 +189,7 @@ Usage of prepending content needs updating.
 
  `prepend: site.baseurl` to `absolute_url`
 
-## 7. Update your `feed.xml` file to use Yarn filter and tags.
+## 7. Update your `feed.xml` file to use Reptar filter and tags.
 
 It should look close to:
 
@@ -204,7 +207,7 @@ template: null
     <atom:link href="{{ "/feed.xml" | absolute_url }}" rel="self" type="application/rss+xml"/>
     <pubDate>{{ site.time | date }}</pubDate>
     <lastBuildDate>{{ site.time | date }}</lastBuildDate>
-    <generator>yarn v{{ yarn.version }}</generator>
+    <generator>reptar v{{ reptar.version }}</generator>
     {% for post in collections.post.files | reverse | limit(10) %}
       <item>
         <title>{{ post.title | escape }}</title>

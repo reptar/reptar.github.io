@@ -6,51 +6,22 @@ content_full_width: true
 ---
 
 <section class="homeSection">
-  <div class="homeSection-block homeSection-blockSmall">
-
-```shell
-# Install yarn-cli
-npm install -g yarn-cli
-
-# Initialize your new yarn site
-mkdir mysite && cd mysite && yarn init
-
-# Build and serve your site!
-yarn build && yarn serve
-```
-
-  </div>
 
   <div class="homeSection-block homeSection-blockBig">
 
-### Installation
+### Why Reptar?
 
-Installing Yarn locally is as simple as installing an npm module.
+Reptar was built to be a modern and feature-rich static site generator.
 
-After Yarn is installed you can quickly initialize your first Yarn site and build it through two simple CLI commands.
+It should be easy to use out of the box and easy to extend for whatever your use case requires.
 
-[Read the full getting started instructions](docs/installation/) for an in depth explanation on how to get going with Yarn.
+Reptar was built to have feature parity with most mature blogging software. Out of the box Reptar can paginate your posts along with create tag pages.
 
-  </div>
-</section>
-
-
-<section class="homeSection">
-
-  <div class="homeSection-block homeSection-blockBig">
-
-### Features
-
-Yarn was built to have feature parity with most mature blogging software.
-
-Out of the box Yarn can paginate your posts along with create tag pages.
-
-You can configure your Yarn site anyway you like. That means [migrating from other systems](/docs/jekyll-to-yarn/) is possible without a full re-write.
+You can configure your Reptar site anyway you like. That means [migrating from other systems](/docs/jekyll-to-yarn/) is easy.
 
 There's also theme support that is expressive, flexible, and sharable. You can use all the modern front-end tools to create rich and beautiful designs.
 
   </div>
-
 
   <div class="homeSection-block homeSection-blockSmall homeSection-checkmarkList">
 
@@ -59,7 +30,7 @@ There's also theme support that is expressive, flexible, and sharable. You can u
 - Pagination
 - Tag support
 - Incremental builds
-- Markdown by [remarkable](https://github.com/jonschlinkert/remarkable/)
+- Markdown by [markdown-it](https://github.com/markdown-it/markdown-it)
 - Template by [nunjucks](http://mozilla.github.io/nunjucks/)
 - Themes with support for <br/>[LESS](http://lesscss.org/), [SASS](http://sass-lang.com/), [Autoprefixer](https://github.com/postcss/autoprefixer),<br/>[Babel](http://babeljs.io/), [Browserify](http://browserify.org/)
 - HTML minification by [html-minifier](https://github.com/kangax/html-minifier)
@@ -67,22 +38,49 @@ There's also theme support that is expressive, flexible, and sharable. You can u
   </div>
 </section>
 
+<section class="homeSection">
+  <div class="homeSection-block homeSection-blockBig">
+
+### Installation
+
+Installing Reptar locally is as simple as installing an npm module.
+
+After Reptar is installed you can quickly initialize your first Reptar site and build it through two simple CLI commands.
+
+[Read the full getting started instructions](docs/installation/) for an in depth explanation on how to get going with Reptar.
+
+  </div>
+  <div class="homeSection-block homeSection-blockSmall">
+
+```shell
+# Install
+npm install -g reptar
+
+# Initialize
+mkdir mysite && cd mysite && reptar init
+
+# Build and spin up a server!
+reptar build && reptar serve
+```
+
+  </div>
+</section>
 
 <section class="homeSection">
   <div class="homeSection-block homeSection-blockSmall">
 
-<img src="images/yarn-build-cli.png" alt="Yarn build" />
+<img src="images/watch-mode.gif" alt="Reptar watch" class="homeWatchMode" />
 
   </div>
   <div class="homeSection-block homeSection-blockBig">
 
 ### Fast
 
-Yarn was built to be fast.
+Reptar was built to be fast.
 
 There's nothing worse than building a large static site and having to wait until it's done. That's why we're doing everything we can to make builds as fast as possible.
 
-Yarn supports incremental builds, allowing you to re-build your site, only building files that changed.
+Reptar supports incremental builds, allowing you to re-build your site, only building files that changed.
 
   </div>
 </section>
@@ -93,9 +91,9 @@ Yarn supports incremental builds, allowing you to re-build your site, only build
 
 ### Open Source
 
-Yarn is 100% open source. It is for and by the community.
+Reptar is 100% open source. It is for and by the community.
 
-All contributions are welcome. [Contribute today!](https://github.com/yarnjs/yarn)
+All contributions are welcome. [Contribute today!](https://github.com/reptar/reptar)
 
   </div>
 </section>

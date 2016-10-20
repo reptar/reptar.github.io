@@ -3,10 +3,10 @@ title: Documentation
 url: /docs/
 ---
 
-Ready to get started with Yarn?
+Ready to get started with Reptar?
 
-Best place to start is by [installing Yarn](/docs/installation/).
+Best place to start is by [installing Reptar](/docs/installation/).
 
-After that learn about [what Yarn does to produce your site](/docs/overview/).
+After that learn about [what Reptar does to produce your site](/docs/overview/).
 
 From there keep diving!

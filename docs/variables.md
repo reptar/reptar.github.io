@@ -36,14 +36,14 @@ An example theme object:
 }
 ```
 
-## yarn
+## reptar
 
 This contains meta information about your Yarn installation.
 
 ```json
 {
-  "yarn": {
-    "version": "0.6.0",
+  "reptar": {
+    "version": "2.0.0",
     "time": "2015-11-28T15:30:33-05:00"
   }
 }

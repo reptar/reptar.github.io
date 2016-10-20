@@ -1,13 +1,12 @@
 # Site settings
 site:
-  title: yarn
-  author: Yarn
+  title: Reptar
+  author: Reptar
   email: my@email.com
-  description: > # this means to ignore newlines until "baseurl:"
-    Homepage of yarn, static site generator.
-  keywords: "static site generator, static site, yarn, nodejs, javascript"
-  baseurl: "" # the subpath of your site, e.g. /blog
-  url: "http://yarnjs.github.io/"
+  description: >
+    Reptar, a static site generator written in Node.
+  keywords: "static site generator, static site, reptar, nodejs, javascript"
+  url: "http://reptar.github.io/"
 
 path:
   source:      ./

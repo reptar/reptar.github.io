@@ -2,22 +2,22 @@
 title: Templates
 ---
 
-Every File that is rendered within Yarn is passed through the [nunjucks](http://mozilla.github.io/nunjucks/) template engine. Nunjucks is a full-featured template engine that lets you create expressive and powerful sites.
+Every File that is rendered within Reptar is passed through the [nunjucks](http://mozilla.github.io/nunjucks/) template engine. Nunjucks is a full-featured template engine.
 
-You should read the [nunjucks documentation](http://mozilla.github.io/nunjucks/templating.html) to learn how to write a template. Or you can take a peak at the [yarn theme 'thread'](https://github.com/yarnjs/yarn-theme-thread) to see an example of a template used within a Yarn theme.
+You should read the [nunjucks documentation](http://mozilla.github.io/nunjucks/templating.html) to learn how to write a template. Or you can take a peak at the [reptar theme 'thread'](https://github.com/reptar/reptar-theme-thread) to see an example of a template used within a Reptar theme.
 
 ## Built-in filters
 
-In addition to the filters built-in to nunjucks, Yarn ships with a few additional built-in filters to make writing templates easier.
+In addition to the filters built-in to nunjucks, Reptar ships with a few additional built-in filters to make writing templates easier.
 
-Find the [source for built-in filters](http://github.com/yarnjs/yarn/blob/master/lib/render/template.js) in the GitHub repo.
+Find the [source for built-in filters](http://github.com/reptar/reptar/blob/master/lib/template.js#L56) in the GitHub repo.
 
 ### date(date, template)
 
 This allows you to easily make use of the [momentjs](http://momentjs.com/) library within a template. It takes a date to format and then a moment template string that it passes through to `momentjs`:
 
 ```html
-{% raw %}The year this site was published is: {{yarn.time | date('YYYY')}}.{% endraw %}
+{% raw %}The year this site was published is: {{reptar.time | date('YYYY')}}.{% endraw %}
 ```
 
 ### slug(str)
