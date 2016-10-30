@@ -21,6 +21,18 @@ An example site object:
 }
 ```
 
+## site.data
+
+If you have any data files they will be accessible here. Read more about [how to use data files.](/docs/data/)
+
+```json
+{
+  "site": {
+    "data": {}
+  }
+}
+```
+
 ## theme
 
 This primarily includes two variables, `css` and `js` whose values are the URL to the asset that is going to be rendered. This is primarily useful when linking to the processed theme asset files.

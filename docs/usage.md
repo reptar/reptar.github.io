@@ -34,3 +34,5 @@ This is useful to quickly preview your built Reptar site locally.
 This creates a local web server that lazily builds your site. It makes for a great development experience as you can edit your site's source files and refresh a page to see the changes immediately reflected.
 
 This is accomplished by only rendering the file that is being requested, always checking from disk what the latest contents are.
+
+When using watch mode you can append `?debug` to any URL to see the underlying data that is powering that File.
