@@ -23,7 +23,7 @@ An example site object:
 
 ## site.data
 
-If you have any data files they will be accessible here. Read more about [how to use data files.](/docs/data/)
+If you have any data files they will be accessible here. Read more about [how to use data files.](/docs/data-files/)
 
 ```json
 {
