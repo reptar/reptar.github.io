@@ -4,7 +4,7 @@ title: Plugins
 
 Reptar supports plugins. This allows you to plug into lifecycle events during Reptar's build process.
 
-### [See all events currently supported.](https://github.com/reptar/reptar/blob/master/lib/plugin/event.js)
+### [See all events currently supported.](https://github.com/reptar/reptar/blob/master/lib/plugin/events.js)
 
 ## Current Reptar Plugins
 
