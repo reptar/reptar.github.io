@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Reptar</title>
+  <meta name="description" content="Reptar, a static site generator written in Node.
+">
+  <meta name="keywords" content="static site generator, static site, reptar, nodejs, javascript" />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+</head>
+<body class="docs-template">
+
+  <div class="headerWrapper clearfix">
+    <header class="mainHeader clearfix">
+      <div class="mainLogo">
+        <h1 class="mainLogo-title">
+          <a href="/">Reptar</a>
+        </h1>
+      </div>
+
+      <nav class="mainNav">
+        <div class="mainNav-item ">
+          <a href="/">Home</a>
+        </div>
+        <div class="mainNav-item mainNav-item--active">
+          <a href="/docs/">Docs</a>
+        </div>
+        <div class="mainNav-item">
+          <a href="https://github.com/reptar/reptar">GitHub</a>
+        </div>
+        <div class="mainNav-item">
+          <iframe class="mainNav-item--iframe" frameborder="0" scrolling="0" width="94px" height="20px"
+            src="https://ghbtns.com/github-btn.html?user=reptar&repo=reptar&type=star&count=true"></iframe>
+        </div>
+      </nav>
+    </header>
+
+    
+  </div>
+
+  <div class="contentWrapper">
+    <main class="mainContent " role="main">
+      
+
+<div class="docsContainer">
+  <article class="docsPage">
+
+    <header class="postHeader">
+      <h1 class="post-title">Middlewares</h1>
+    </header>
+
+    <section class="post-content">
+      <p>If Reptar is missing some functionality you desire then you can further customize Reptar through the use of middleware.</p>
+<p>Middleware is a function that is given the current <code>reptar</code> instance, allowing you to access any APIs on the Reptar object and manipulate it however you want.</p>
+<p>Middleware is ran in-between the update and build step of <code>reptar build</code>.</p>
+<p>You add middleware through the <code>reptar.config.js</code> file.</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-comment">// Reptar iterates through each middleware function in order defined.</span>
+  middlewares: [
+
+    <span class="hljs-comment">// Reptar attempts to load an npm package named 'my-middleware'</span>
+    <span class="hljs-string">'my-middleware'</span>,
+
+    <span class="hljs-comment">// Reptar uses the middleware function directly.</span>
+    myFunc,
+  ],
+}
+</code></pre>
+<h2>Example</h2>
+<p>Let's say you wanted to add a custom frontmatter value to every File object. You wanted to take the title of the File and make it all lower case.</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// All within reptar.config.js</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toLowerCaseMiddleware</span>(<span class="hljs-params">reptar</span>) </span>{
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> fileKey <span class="hljs-keyword">in</span> reptar.destination) {
+    <span class="hljs-keyword">const</span> file = reptar.destination[fileKey];
+
+    file.data.titleLower = file.data.title.toLowerCase();
+  }
+};
+
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">middlewares</span>: [
+    toLowerCaseMiddleware,
+  ],
+}
+</code></pre>
+<p>And now you will have a <code>titleLower</code> variable available in every rendered file.</p>
+<h2>Lifecycle Middleware</h2>
+<p>Reptar also has support for middleware to be ran at certain points in the build lifecycle.</p>
+<p>You can configure the lifecycle middleware in your <code>reptar.config.js</code> file.</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-comment">// The value of every lifecycle middleware is the same as regular middleware.</span>
+  lifecycle: {
+    <span class="hljs-comment">// This is ran right before Reptar updates itself from the filesystem.</span>
+    willUpdate: [],
+
+    <span class="hljs-comment">// This is ran right after Reptar updates itself from the filesystem.</span>
+    didUpdate: [],
+
+    <span class="hljs-comment">// This is ran right before Reptar is going to build your site.</span>
+    willBuild: [],
+
+    <span class="hljs-comment">// This is ran right after Reptar built your site.</span>
+    didBuild: [],
+  }
+}
+</code></pre>
+<h2>Asynchronous Middleware</h2>
+<p>Middleware functions can also be asynchronous.</p>
+<p>To opt-in to asynchronous behavior you can:</p>
+<ol>
+<li>Return a <code>Promise</code>.</li>
+</ol>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">promiseMiddleware</span>(<span class="hljs-params">reptar</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      resolve();
+    }, <span class="hljs-number">100</span>);
+  })
+}
+</code></pre>
+<ol start="2">
+<li>Add a second argument to your middleware function, called <code>done</code>, and call it when you're done.</li>
+</ol>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doneMiddleare</span>(<span class="hljs-params">reptar, done</span>) </span>{
+  setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    done();
+  }, <span class="hljs-number">100</span>);
+}
+</code></pre>
+<h2>Current Reptar Middleware</h2>
+<ul>
+<li><a href="https://github.com/reptar/reptar-excerpt">reptar-excerpt</a></li>
+</ul>
+<p>Add excerpt data to each File object. Useful when rendering a list of pages.</p>
+<ul>
+<li><a href="https://github.com/reptar/reptar-html-minifier">reptar-html-minifier</a></li>
+</ul>
+<p>Minify your rendered files.</p>
+
+    </section>
+
+  </article>
+
+  
+
+<nav class="docsNav">
+  <h4>Getting Started</h4>
+  <ol class="docsNav-itemContainer">
+    <li class="docsNav-item ">
+      <a href="/docs/installation/">Installation</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/overview/">Overview</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/usage/">Usage</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/configuration/">Configuration</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/file/">File</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/collections/">Collections</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/data-files/">Data Files</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/templates/">Templates</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/variables/">Variables</a>
+    </li>
+
+    <li class="docsNav-item docsNav-item--active">
+      <a href="/docs/middlewares/">Middlewares</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/upgrade/">Upgrade</a>
+    </li>
+
+    <li class="docsNav-item">
+      <a href="http://reptar.github.io/reptar/">Source Code Docs</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/jekyll-to-reptar/">Jekyll to Reptar</a>
+    </li>
+  </ol>
+</nav>
+  
+</div>
+
+
+
+      
+    </main>
+  </div>
+
+  <div class="footerWrapper">
+    <footer class="mainFooter clearfix">
+      <p class="footer-published footer-song">
+        I'm just a static site generator, I don't know what I'm for.
+      </p>
+      <p class="footer-published footer-song">
+        I like to stomp and roar! Hey! I'm just a static site generator!
+      </p>
+      <p class="footer-published">
+        joyfully published by <a href="https://github.com/reptar/reptar">Reptar</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70892705-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>

@@ -1,49 +1,229 @@
-<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel=stylesheet type=text/css><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Reptar</title><meta name=description content="Reptar, a static site generator written in Node.
-"><meta name=keywords content="static site generator, static site, reptar, nodejs, javascript"><meta name=HandheldFriendly content=True><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=/favicon.ico><link rel=stylesheet type=text/css href=/css/main-745d4b71f9.css></head><body class=docs-template><div class="headerWrapper clearfix"><header class="mainHeader clearfix"><div class=mainLogo><h1 class=mainLogo-title><a href=/ >Reptar</a></h1></div><nav class=mainNav><div class=mainNav-item><a href=/ >Home</a></div><div class="mainNav-item mainNav-item--active"><a href=/docs/ >Docs</a></div><div class=mainNav-item><a href=https://github.com/reptar/reptar>GitHub</a></div><div class=mainNav-item><iframe class=mainNav-item--iframe frameborder=0 scrolling=0 width=94px height=20px src="https://ghbtns.com/github-btn.html?user=reptar&repo=reptar&type=star&count=true"></iframe></div></nav></header></div><div class=contentWrapper><main class=mainContent role=main><div class=docsContainer><article class=docsPage><header class=postHeader><h1 class=post-title>Collections</h1></header><section class=post-content><p>Reptar supports the ability to group Files into Collections. This is useful when creating paginated blog pages, or creating tag pages that contain Files that match the tag found in its frontmatter.</p><p>Collections are configured in <code>_config.yml</code>, underneath the <code>collections</code> key. Every key of that object is the name of a collection and its value is an object which configures the collection.</p><p>The primary configuration required is to define how a collection decides what File belong within itself. This is defined differently depending on the collection type.</p><h2>FileSystemCollection</h2><p>This collection populates itself via the file system. Any files that are found within its defined path are added to the collection.</p><p>An example file system configuration:</p><pre><code class=language-yaml><span class=hljs-attr>collections:</span>
-<span class=hljs-attr>  post:</span>
-<span class=hljs-attr>    path:</span> ./_posts
-<span class=hljs-attr>    template:</span> post_page
-</code></pre><p>This is a simple configuration that says that all files found within the <code>./_posts</code> of the Reptar site belong in the Collection named <code>post</code>. When Reptar compiles your site it uses the <code>post_page.html</code> template file to render the source file.</p><p>A <code>FileSystemCollection</code> can also include additional configuration values that allow greater control over the output. There's enough configuration available that a <code>FileSystemCollection</code> can create a simple blog site.</p><p>Here is the example configuration, with explanations for every configuration value found inline.</p><pre><code class=language-yaml><span class=hljs-attr>collections:</span>
-<span class=hljs-attr>  post:</span>
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
 
-    <span class=hljs-comment># For every file found within `./_posts` they should be</span>
-    <span class=hljs-comment># included in this collection.</span>
-<span class=hljs-attr>    path:</span> ./_posts
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <span class=hljs-comment># By default every created Collection Page will use</span>
-    <span class=hljs-comment># the `post_index.html` template.</span>
-<span class=hljs-attr>    template:</span> post_index
+  <title>Reptar</title>
+  <meta name="description" content="Reptar, a static site generator written in Node.
+">
+  <meta name="keywords" content="static site generator, static site, reptar, nodejs, javascript" />
 
-    <span class=hljs-comment># Decide how many Files should be included in each</span>
-    <span class=hljs-comment># pagination page.</span>
-<span class=hljs-attr>    page_size:</span> <span class=hljs-number>6</span>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <span class=hljs-comment># Once files have been included in the collection this</span>
-    <span class=hljs-comment># defines how they should be sorted. The key value</span>
-    <span class=hljs-comment># corresponds to the frontmatter metadata, so you can choose</span>
-    <span class=hljs-comment># whatever property you want to dictate how the collection</span>
-    <span class=hljs-comment># is ordered.</span>
-<span class=hljs-attr>    sort:</span>
-<span class=hljs-attr>      key:</span> date
-<span class=hljs-attr>      order:</span> descending
+  <link rel="shortcut icon" href="/favicon.ico">
 
-    <span class=hljs-comment># Define what the permalink for every CollectionPage should be.</span>
-<span class=hljs-attr>    permalink:</span>
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+</head>
+<body class="docs-template">
 
-      <span class=hljs-comment># Decide what the URL should be for the initial</span>
-      <span class=hljs-comment># CollectionPage.</span>
-<span class=hljs-attr>      index:</span> /
+  <div class="headerWrapper clearfix">
+    <header class="mainHeader clearfix">
+      <div class="mainLogo">
+        <h1 class="mainLogo-title">
+          <a href="/">Reptar</a>
+        </h1>
+      </div>
 
-      <span class=hljs-comment># Decide what the URL should be for every additional</span>
-      <span class=hljs-comment># CollectionPage.</span>
-<span class=hljs-attr>      page:</span>  /page/:page/
-</code></pre><h2>Metadata</h2><p>This collection is almost identical to a FileSystemCollection collection however its initial source of Files is instead derived from the metadata found within every file.</p><p>For example to create a tags MetadataCollection:</p><pre><code class=language-yaml><span class=hljs-attr>collections:</span>
-<span class=hljs-attr>  tag:</span>
-<span class=hljs-attr>    metadata:</span> tags
-</code></pre><p>This creates a <code>tag</code> collection in which every file that has frontmatter that contains a <code>tags</code> key will be included in this collection.</p><p>Every other configuration option as the FileSystemCollection is available, except the <code>path</code> key as that has no bearing on a MetadataCollection.</p></section></article><nav class=docsNav><h4>Getting Started</h4><ol class=docsNav-itemContainer><li class=docsNav-item><a href=/docs/installation/ >Installation</a></li><li class=docsNav-item><a href=/docs/overview/ >Overview</a></li><li class=docsNav-item><a href=/docs/usage/ >Usage</a></li><li class=docsNav-item><a href=/docs/configuration/ >Configuration</a></li><li class=docsNav-item><a href=/docs/file/ >File</a></li><li class="docsNav-item docsNav-item--active"><a href=/docs/collections/ >Collections</a></li><li class=docsNav-item><a href=/docs/data-files/ >Data Files</a></li><li class=docsNav-item><a href=/docs/themes/ >Themes</a></li><li class=docsNav-item><a href=/docs/templates/ >Templates</a></li><li class=docsNav-item><a href=/docs/variables/ >Variables</a></li><li class=docsNav-item><a href=/docs/plugins/ >Plugins</a></li><li class=docsNav-item><a href=http://reptar.github.io/reptar/ >Source Code Docs</a></li><li class=docsNav-item><a href=/docs/jekyll-to-reptar/ >Jekyll to Reptar</a></li></ol></nav></div></main></div><div class=footerWrapper><footer class="mainFooter clearfix"><p class="footer-published footer-song">I'm just a static site generator, I don't know what I'm for.</p><p class="footer-published footer-song">I like to stomp and roar! Hey! I'm just a static site generator!</p><p class=footer-published>joyfully published by <a href=https://github.com/reptar/reptar>Reptar</a></p></footer></div><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      <nav class="mainNav">
+        <div class="mainNav-item ">
+          <a href="/">Home</a>
+        </div>
+        <div class="mainNav-item mainNav-item--active">
+          <a href="/docs/">Docs</a>
+        </div>
+        <div class="mainNav-item">
+          <a href="https://github.com/reptar/reptar">GitHub</a>
+        </div>
+        <div class="mainNav-item">
+          <iframe class="mainNav-item--iframe" frameborder="0" scrolling="0" width="94px" height="20px"
+            src="https://ghbtns.com/github-btn.html?user=reptar&repo=reptar&type=star&count=true"></iframe>
+        </div>
+      </nav>
+    </header>
+
+    
+  </div>
+
+  <div class="contentWrapper">
+    <main class="mainContent " role="main">
+      
+
+<div class="docsContainer">
+  <article class="docsPage">
+
+    <header class="postHeader">
+      <h1 class="post-title">Collections</h1>
+    </header>
+
+    <section class="post-content">
+      <p>Reptar has built-in support to group Files into Collections. This is useful when creating paginated blog pages, or creating tag pages that contain Files that match the tag found in its frontmatter.</p>
+<p>Collections are configured in <code>reptar.config.js</code>, underneath the <code>collections</code> key. Every key of that object is the name of a collection and its value is an object which configures the collection.</p>
+<p>The primary configuration required is to define how a collection decides what File belong within itself. This is defined differently depending on the collection type.</p>
+<h2>FileSystemCollection</h2>
+<p>This collection populates itself via the file system. Any files that are found within its defined path are added to the collection.</p>
+<p>An example file system configuration:</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">collections</span>: {
+    <span class="hljs-attr">post</span>: {
+      <span class="hljs-attr">path</span>: <span class="hljs-string">'./_posts'</span>,
+      <span class="hljs-attr">template</span>: <span class="hljs-string">'post_page'</span>,
+    },
+  },
+};
+</code></pre>
+<p>This is a simple configuration that says that all files found within the <code>./_posts</code> of the Reptar site belong in the Collection named <code>post</code>. When Reptar compiles your site it uses the <code>post_page.html</code> template file to render the source file.</p>
+<p>A <code>FileSystemCollection</code> can also include additional configuration values that allow greater control over the output. There's enough configuration available that a <code>FileSystemCollection</code> can create a simple blog site.</p>
+<p>Here is the example configuration, with explanations for every configuration value found inline.</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">collections</span>: {
+    <span class="hljs-attr">post</span>: {
+      <span class="hljs-comment">// For every file found within `./_posts` they should be</span>
+      <span class="hljs-comment">// included in this collection.</span>
+      path: <span class="hljs-string">'./_posts'</span>,
+
+      <span class="hljs-comment">// By default every created Collection Page will use</span>
+      <span class="hljs-comment">// the `post_index.html` template.</span>
+      template: <span class="hljs-string">'post_index'</span>,
+
+      <span class="hljs-comment">// Decide how many Files should be included in each</span>
+      <span class="hljs-comment">// pagination page.</span>
+      pageSize: <span class="hljs-number">6</span>,
+
+      <span class="hljs-comment">// Once files have been included in the collection this</span>
+      <span class="hljs-comment">// defines how they should be sorted. The key value</span>
+      <span class="hljs-comment">// corresponds to the frontmatter metadata, so you can choose</span>
+      <span class="hljs-comment">// whatever property you want to dictate how the collection</span>
+      <span class="hljs-comment">// is ordered.</span>
+      sort: {
+        <span class="hljs-attr">key</span>: <span class="hljs-string">'date'</span>,
+        <span class="hljs-attr">order</span>: <span class="hljs-string">'descending'</span>,
+      },
+
+      <span class="hljs-comment">// Define what the permalink for every CollectionPage should be.</span>
+      permalink: {
+        <span class="hljs-comment">// Decide what the URL should be for the initial</span>
+        <span class="hljs-comment">// CollectionPage.</span>
+        index: <span class="hljs-string">'/'</span>,
+        <span class="hljs-comment">// Decide what the URL should be for every additional</span>
+        <span class="hljs-comment">// CollectionPage.</span>
+        page: <span class="hljs-string">'/page/:page/'</span>,
+      },
+    },
+  },
+};
+</code></pre>
+<h2>Metadata</h2>
+<p>This collection is almost identical to a FileSystemCollection collection however its initial source of Files is instead derived from the metadata found within every file.</p>
+<p>For example to create a tags MetadataCollection:</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">collections</span>: {
+    <span class="hljs-attr">tag</span>: {
+      <span class="hljs-attr">metadata</span>: <span class="hljs-string">'tags'</span>,
+    },
+  },
+};
+</code></pre>
+<p>This creates a <code>tag</code> collection in which every file that has frontmatter that contains a <code>tags</code> key will be included in this collection.</p>
+<p>Every other configuration option as the FileSystemCollection is available, except the <code>path</code> key as that has no bearing on a MetadataCollection.</p>
+
+    </section>
+
+  </article>
+
+  
+
+<nav class="docsNav">
+  <h4>Getting Started</h4>
+  <ol class="docsNav-itemContainer">
+    <li class="docsNav-item ">
+      <a href="/docs/installation/">Installation</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/overview/">Overview</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/usage/">Usage</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/configuration/">Configuration</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/file/">File</a>
+    </li>
+
+    <li class="docsNav-item docsNav-item--active">
+      <a href="/docs/collections/">Collections</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/data-files/">Data Files</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/templates/">Templates</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/variables/">Variables</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/middlewares/">Middlewares</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/upgrade/">Upgrade</a>
+    </li>
+
+    <li class="docsNav-item">
+      <a href="http://reptar.github.io/reptar/">Source Code Docs</a>
+    </li>
+
+    <li class="docsNav-item ">
+      <a href="/docs/jekyll-to-reptar/">Jekyll to Reptar</a>
+    </li>
+  </ol>
+</nav>
+  
+</div>
+
+
+
+      
+    </main>
+  </div>
+
+  <div class="footerWrapper">
+    <footer class="mainFooter clearfix">
+      <p class="footer-published footer-song">
+        I'm just a static site generator, I don't know what I'm for.
+      </p>
+      <p class="footer-published footer-song">
+        I like to stomp and roar! Hey! I'm just a static site generator!
+      </p>
+      <p class="footer-published">
+        joyfully published by <a href="https://github.com/reptar/reptar">Reptar</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-70892705-1', 'auto');
-  ga('send', 'pageview');</script><script type=text/javascript src=/js/main-c614ff7b24.js></script></body></html>
+  ga('send', 'pageview');
+  </script>
+  <script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>

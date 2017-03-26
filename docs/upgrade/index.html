@@ -56,15 +56,59 @@
   <article class="docsPage">
 
     <header class="postHeader">
-      <h1 class="post-title">Documentation</h1>
+      <h1 class="post-title">Upgrade</h1>
     </header>
 
     <section class="post-content">
-      <p>Ready to get started with Reptar?</p>
-<p>Best place to start is by <a href="/docs/installation/">installing Reptar</a>.</p>
-<p>After that learn about <a href="/docs/overview/">what Reptar does to produce your site</a>.</p>
-<p>Curious about the source code? <a href="http://reptar.github.io/reptar/">Read the source code documentation.</a></p>
-<p>From there keep diving!</p>
+      <h2>Upgrade from 2.x to 3.x</h2>
+<p>The upgrade path from 2.x to 3.x of Reptar requires a few steps.</p>
+<ol>
+<li>
+<p>Create a new file in the same directory as your <code>_config.yml</code> file named <code>reptar.config.js</code>.</p>
+</li>
+<li>
+<p>Copy the contents of your <code>_config.yml</code> to JavaScript. Use this <a href="https://nodeca.github.io/js-yaml/">online JS-YAML converter</a>.</p>
+</li>
+<li>
+<p>Copy the converted contents into the <code>reptar.config.js</code> file. Prefix the content with <code>module.exports =</code>. This exports the config object and makes it accessible to Reptar.</p>
+</li>
+<li>
+<p>Update your config file's keys to adhere to the new required schema. Largely this means replacing any key that is in <code>snake_case</code> to use <code>camelCase</code>. The updates needed are:</p>
+</li>
+</ol>
+<pre><code><span class="hljs-function"><span class="hljs-title">url_key</span> -&gt;</span> urlKey  
+<span class="hljs-function"><span class="hljs-title">date_format</span> -&gt;</span> dateFormat
+<span class="hljs-function"><span class="hljs-title">future_date</span> -&gt;</span> futureDate
+<span class="hljs-function"><span class="hljs-title">page_size</span> -&gt;</span> pageSize
+<span class="hljs-function"><span class="hljs-title">clean_destination</span> -&gt;</span> cleanDestination
+<span class="hljs-function"><span class="hljs-title">new_file_permalink</span> -&gt;</span> newFilePermalink
+</code></pre>
+<ol start="5">
+<li>Remove the following keys from your <code>reptar.config.js</code> file:</li>
+</ol>
+<ul>
+<li><code>path.plugins</code></li>
+<li><code>path.themes</code></li>
+<li><code>themes</code></li>
+<li><code>plugins</code></li>
+</ul>
+<ol start="6">
+<li>
+<p>Move your asset files, <code>js</code>, <code>css</code>, <code>images</code> to the top level of your site.</p>
+</li>
+<li>
+<p>Move your templates folder to the top level of your site. <em>(Optionally)</em> Rename the folder to <code>_templates</code>.</p>
+</li>
+<li>
+<p><em>(Optionally)</em> Delete the <code>_themes</code> folder as it's no longer used.</p>
+</li>
+<li>
+<p>Add <code>path.templates</code> to your <code>reptar.config.js</code> file pointing to the location of your templates folder.</p>
+</li>
+<li>
+<p>The template variable <code>theme</code> has been removed. You need to update your templates if you make any references to <code>{{theme.&lt;whatever&gt;}}</code> to point to the expected render location of the asset. Doing a global find and replace should be sufficient.</p>
+</li>
+</ol>
 
     </section>
 
@@ -115,7 +159,7 @@
       <a href="/docs/middlewares/">Middlewares</a>
     </li>
 
-    <li class="docsNav-item ">
+    <li class="docsNav-item docsNav-item--active">
       <a href="/docs/upgrade/">Upgrade</a>
     </li>
 
