@@ -19,8 +19,6 @@ Reptar was built to have feature parity with most mature blogging software. Out 
 
 You can configure your Reptar site anyway you like. That means [migrating from other systems](/docs/jekyll-to-reptar/) is easy.
 
-There's also theme support that is expressive, flexible, and sharable. You can use all the modern front-end tools to create rich and beautiful designs.
-
   </div>
 
   <div class="homeSection-block homeSection-blockSmall homeSection-checkmarkList">
@@ -32,7 +30,7 @@ There's also theme support that is expressive, flexible, and sharable. You can u
 - Incremental builds
 - Markdown by [markdown-it](https://github.com/markdown-it/markdown-it)
 - Template by [nunjucks](http://mozilla.github.io/nunjucks/)
-- Themes with support for <br/>[LESS](http://lesscss.org/), [SASS](http://sass-lang.com/), [Autoprefixer](https://github.com/postcss/autoprefixer),<br/>[Babel](http://babeljs.io/), [Browserify](http://browserify.org/)
+- Support for <br/>[LESS](http://lesscss.org/), [SASS](http://sass-lang.com/), [Autoprefixer](https://github.com/postcss/autoprefixer),<br/>[Babel](http://babeljs.io/), [Browserify](http://browserify.org/)
 - HTML minification by [html-minifier](https://github.com/kangax/html-minifier)
 
   </div>

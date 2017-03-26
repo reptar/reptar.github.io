@@ -2,11 +2,11 @@
 title: Variables
 ---
 
-Every template that is rendered has access to variables when it is rendered. The following describes what variables are accessible from a template file. They are all accessible within a template via `{{site.title}}` or `{{theme.css}}`, etc.
+Every template that is rendered has access to variables when it is rendered. The following describes what variables are accessible from a template file. They are all accessible within a template via {% raw %}`{{site.title}}` or `{{theme.css}}`, etc.{% endraw %}
 
 ## site
 
-This contains all values that are defined in your `_config.yml`'s  `site` object. Anything you put there will be accessible from every file that is rendered.
+This contains all values that are defined in your `reptar.config.js`'s  `site` object. Anything you put there will be accessible from every file that is rendered.
 
 An example site object:
 
@@ -33,21 +33,6 @@ If you have any data files they will be accessible here. Read more about [how to
 }
 ```
 
-## theme
-
-This primarily includes two variables, `css` and `js` whose values are the URL to the asset that is going to be rendered. This is primarily useful when linking to the processed theme asset files.
-
-An example theme object:
-
-```json
-{
-  "theme": {
-    "css": "/css/main-684582f800.css",
-    "js": "/js/main-fc9402a8a5.js"
-  }
-}
-```
-
 ## reptar
 
 This contains meta information about your Reptar installation.
@@ -63,7 +48,7 @@ This contains meta information about your Reptar installation.
 
 ## collections
 
-This is an object whose keys reflect every Collection that you have defined in your `_config.yml`, and every value is also an object.
+This is an object whose keys reflect every Collection that you have defined in your `reptar.config.js`, and every value is also an object.
 
 The keys on a collection are `files` and `pages`. Both are arrays which contain a File data object and a Pagination data object respectively.
 

@@ -4,7 +4,19 @@ title: Templates
 
 Every File that is rendered within Reptar is passed through the [nunjucks](http://mozilla.github.io/nunjucks/) template engine. Nunjucks is a full-featured template engine.
 
-You should read the [nunjucks documentation](http://mozilla.github.io/nunjucks/templating.html) to learn how to write a template. Or you can take a peak at the [reptar theme 'thread'](https://github.com/reptar/reptar-theme-thread) to see an example of a template used within a Reptar theme.
+You should read the [nunjucks documentation](http://mozilla.github.io/nunjucks/templating.html) to learn how to write a template. Or you can use `reptar init` to create an initial scaffold of a working template layout.
+
+## Configure template location
+
+You configure the location of your nunjucks templates in your `reptar.config.js` file.
+
+```javascript
+module.exports = {
+  path: {
+    templates: './_templates'
+  },
+};
+```
 
 ## Built-in filters
 

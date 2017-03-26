@@ -28,3 +28,16 @@ You'll be able to show that list in a template via:
 {% endfor %}
 ```
 {% endraw %}
+
+
+## Configure data files location
+
+You configure the location of your data files `reptar.config.js` file.
+
+```javascript
+module.exports = {
+  path: {
+    data: './_data'
+  },
+};
+```

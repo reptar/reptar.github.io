@@ -46,4 +46,8 @@ module.exports = {
       },
     },
   },
+  // plugins: {
+  //   'html-minifier': { enabled: true },
+  //   excerpt: { enabled: true },
+  // },
 };
