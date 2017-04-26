@@ -56,35 +56,43 @@
   <article class="docsPage">
 
     <header class="postHeader">
-      <h1 class="post-title">Data Files</h1>
+      <h1 class="post-title">Permalinks</h1>
     </header>
 
     <section class="post-content">
-      <p>Reptar supports data files. That is, you can create either <code>.json</code> or <code>.yaml</code> files in your defined <code>path.data</code> folder - <code>_data/</code> by default - and the values that are defined in those files will be accessible in your site.</p>
-<p>The data will be accessible in every template on the <code>site.data</code> object, with every key being the path and file name of your data file.</p>
-<p>For example, if your data folder is <code>_data/</code> and you have a file <code>_data/tv/fall.yaml</code> with the contents of</p>
-<pre><code class="language-yaml"><span class="hljs-attr">- name:</span> <span class="hljs-string">Grimm</span>
-<span class="hljs-attr">  network:</span> <span class="hljs-string">NBC</span>
-
-<span class="hljs-attr">- name:</span> <span class="hljs-string">Luke</span> <span class="hljs-string">Cage</span>
-<span class="hljs-attr">  network:</span> <span class="hljs-string">Netflix</span>
-
-<span class="hljs-attr">- name:</span> <span class="hljs-string">Brooklyn</span> <span class="hljs-number">99</span>
-<span class="hljs-attr">  network:</span> <span class="hljs-string">NBC</span>
+      <p>Permalinks control how Reptar write your files to desk. This ultimately dictates the layout of your site and how it will be acessible to all readers.</p>
+<p>Permalinks can be either set directly in a <a href="/docs/file">File</a>'s frontmatter via the <code>permalink</code> key, or it can be set as a default value in <code>reptar.config.js</code> (for more about <a href="/docs/file">default values consult the section in the File documentation page</a>).</p>
+<p>A permalink string can access any value set in a <a href="/docs/file">File</a>'s frontmatter.</p>
+<p>For example, if you want Reptar to write all your files to disk using the <code>title</code> value in the <code>_posts</code> directory, you can create the following default value for <code>permalink</code>.</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// reptar.config.js</span>
+...
+{
+  <span class="hljs-attr">scope</span>: { <span class="hljs-attr">path</span>: <span class="hljs-string">'./_posts'</span> },
+  <span class="hljs-attr">values</span>: { <span class="hljs-attr">template</span>: <span class="hljs-string">'post'</span>, <span class="hljs-attr">permalink</span>: <span class="hljs-string">'/:title/'</span> }
+},
+...
 </code></pre>
-<p>You'll be able to show that list in a template via:</p>
-<pre><code class="language-html">{% for show in site.data.tv.fall %}
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Watch {{show.name}} on {{show.network}}!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-{% endfor %}
+<h2>Dates in Frontmatter &amp; Permalinks</h2>
+<p>If a File's frontmatter has a <code>date</code> key with a value that can be parsed by <a href="http://momentjs.com/">momentjs</a> - such as <code>YYYY-MM-DD</code> - you can pipe it through <code>moment</code> to get a pretty display of that value. Any of the <a href="http://momentjs.com/docs/#/displaying/format/">tokens in moment.format</a> will work.</p>
+<p>For example.</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// reptar.config.js</span>
+...
+{
+  <span class="hljs-attr">scope</span>: { <span class="hljs-attr">path</span>: <span class="hljs-string">'./_posts'</span> },
+  <span class="hljs-attr">values</span>: {
+    <span class="hljs-attr">template</span>: <span class="hljs-string">'post'</span>,
+    <span class="hljs-attr">permalink</span>: <span class="hljs-string">'/:date|YYYY/:date|MM/:date|DD/:title'</span>
+  }
+},
+...
 </code></pre>
-<h2>Configure data files location</h2>
-<p>You configure the location of your data files <code>reptar.config.js</code> file.</p>
-<pre><code class="language-javascript"><span class="hljs-built_in">module</span>.exports = {
-  <span class="hljs-attr">path</span>: {
-    <span class="hljs-attr">data</span>: <span class="hljs-string">'./_data'</span>
-  },
-};
+<p>Based on this configuration, if your File's frontmatter looked like this:</p>
+<pre><code class="language-plaintext"><span class="hljs-meta">---</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">Reptar</span> <span class="hljs-string">Crunch</span> <span class="hljs-string">Cereal</span>
+<span class="hljs-attr">date:</span> <span class="hljs-number">2017</span><span class="hljs-bullet">-04</span><span class="hljs-bullet">-01</span>
+<span class="hljs-meta">---</span>
 </code></pre>
+<p>Reptar would build a url like this: <code>2017/04/01/reptar-crunch-cereal</code>.</p>
 
     </section>
 
@@ -119,11 +127,11 @@
       <a href="/docs/collections/">Collections</a>
     </li>
 
-    <li class="docsNav-item docsNav-item--active">
+    <li class="docsNav-item ">
       <a href="/docs/data-files/">Data Files</a>
     </li>
 
-    <li class="docsNav-item ">
+    <li class="docsNav-item docsNav-item--active">
       <a href="/docs/permalinks/">Permalinks</a>
     </li>
 
