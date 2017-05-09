@@ -6,7 +6,7 @@ An individual File that exists in your Reptar site. There is a File object creat
 
 If a file does not have frontmatter then Reptar will copy it directly to your destination path.
 
-If you have a non-markdown file you can configure how Reptar parses and renders that file through [asset configuration](/docs/assets/).
+If you have a non-markdown file you can configure how Reptar parses and renders that file through asset configuration.
 
 ## Frontmatter
 
