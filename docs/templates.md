@@ -22,7 +22,7 @@ module.exports = {
 
 In addition to the filters built-in to nunjucks, Reptar ships with a few additional built-in filters to make writing templates easier.
 
-Find the [source for built-in filters](http://github.com/reptar/reptar/blob/master/lib/template.js#L56) in the GitHub repo.
+Find the [source for built-in filters](https://github.com/reptar/reptar/blob/master/lib/renderer/template.js#L98-L148) in the GitHub repo.
 
 ### date(date, template)
 
