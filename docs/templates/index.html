@@ -72,7 +72,7 @@
 </code></pre>
 <h2>Built-in filters</h2>
 <p>In addition to the filters built-in to nunjucks, Reptar ships with a few additional built-in filters to make writing templates easier.</p>
-<p>Find the <a href="http://github.com/reptar/reptar/blob/master/lib/template.js#L56">source for built-in filters</a> in the GitHub repo.</p>
+<p>Find the <a href="https://github.com/reptar/reptar/blob/master/lib/renderer/template.js#L98-L148">source for built-in filters</a> in the GitHub repo.</p>
 <h3>date(date, template)</h3>
 <p>This allows you to easily make use of the <a href="http://momentjs.com/">momentjs</a> library within a template. It takes a date to format and then a moment template string that it passes through to <code>momentjs</code>:</p>
 <pre><code class="language-html">The year this site was published is: {{reptar.time | date('YYYY')}}.
