@@ -2,7 +2,7 @@
 title: Permalinks
 ---
 
-Permalinks control how Reptar write your files to desk. This ultimately dictates the layout of your site and how it will be acessible to all readers.
+Permalinks control how Reptar write your files to disk. This ultimately dictates the layout of your site and how it will be acessible to all readers.
 
 Permalinks can be either set directly in a [File](/docs/file)'s frontmatter via the `permalink` key, or it can be set as a default value in `reptar.config.js` (for more about [default values consult the section in the File documentation page](/docs/file)).
 
