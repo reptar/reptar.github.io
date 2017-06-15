@@ -6,7 +6,7 @@ Reptar supports data files. That is, you can create either `.json` or `.yaml` fi
 
 The data will be accessible in every template on the `site.data` object, with every key being the path and file name of your data file.
 
-For example, if your data folder is `_data/` and you have a file `_data/tv/fall.yaml` with the contents of
+For example, if your data folder is `_data/` and you have a file `_data/tv/fall.yaml` with the contents:
 
 ```yaml
 - name: Grimm
